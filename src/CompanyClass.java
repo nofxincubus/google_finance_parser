@@ -21,6 +21,8 @@ public class CompanyClass {
 	long id;
 	String companySymbol;
 	String companyName;
+	String industry;
+	String sector;
 	float marketCap;
 	
 	public static ArrayList<CompanyClass> parseCSV(String fileName){
@@ -36,6 +38,8 @@ public class CompanyClass {
 		    	newCompany = new CompanyClass();
 		    	newCompany.companySymbol = nextLine[0];
 		    	newCompany.companyName = nextLine[1];
+		    	newCompany.sector = nextLine[6];
+		    	newCompany.industry = nextLine[7];
 		    	try {
 		    	newCompany.marketCap = Float.parseFloat(nextLine[3]);
 		    	} catch (NumberFormatException nfe){

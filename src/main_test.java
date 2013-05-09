@@ -17,10 +17,18 @@ public class main_test {
     	for (CompanyClass cClass:companyList){
     		System.out.println(cClass.companyName + " " + cClass.companySymbol + " " + cClass.marketCap);
     	}
-        Connection con = null;
+        
+    	FinancialClass fClass = WebParser.loadContent("INTC");
+    	
+        
+    }
+    
+    public void sqlStuff(){
+    	Connection con = null;
         Statement st = null;
         ResultSet rs = null;
 
+        
         String url = "jdbc:mysql://localhost:3306/financedb";
         String user = "calvin";
         String password = "wlgnsl";
@@ -62,6 +70,5 @@ public class main_test {
         }
         
     }
-    
     
 }

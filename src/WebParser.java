@@ -18,19 +18,23 @@ class WebParser {
 	String searchString = new String();
 	
 	ArrayList <String> companySymbol = new ArrayList<String>();
+	ArrayList <FinancialClass> companyData = new ArrayList<FinancialClass>();
 	
 	//Constructor without page number specified
 	WebParser(ArrayList <String> symbol){
 		//correcting page for nextag website's page index.
 		companySymbol = symbol;
-		loadContent();
+		for (String sym:companySymbol){
+			companyData.addAll(loadContent(sym));
+		}
 	}
 	
-	public void loadContent()
+	public static ArrayList<FinancialClass> loadContent(String symbol)
 	{
+		ArrayList<FinancialClass> fcList = new ArrayList<FinancialClass>();
 		//Specifying web address to search products
 		String webAddress =  "https://www.google.com/finance?q=NASDAQ%3A" + 
-		 + "&fstype=ii";
+				symbol + "&fstype=ii";
 		boolean pageIndexError = true;
 		
 		//Output the complete address
@@ -48,55 +52,46 @@ class WebParser {
                     new InputStreamReader(
                     		webCon.getInputStream()));
 			
-			while ((inputLine = in.readLine()) != null)
-	        {
-				//Finding Total Number of Result
-				if (inputLine.indexOf("Showing")>0)
-				{
-					extractNumResult(inputLine);
-					pageIndexError = false;
-				}
-				//Finding Merchant
-				if (inputLine.indexOf("See Store")>0 && inputLine.indexOf("opBLink")>0)
-				{
-					//System.out.println(inputLine);
-					extractMerchant(inputLine);
-				}
-				//Finding product
-				if (inputLine.indexOf("\"opILink")>0)
-				{
-					//System.out.println(inputLine);
-					if (inputLine.indexOf(" title=") > 0)
-						extractTitle(inputLine);
-					else
-					{
-						//System.out.println(inputLine);
-						inputLine = in.readLine();
-						while (inputLine.indexOf(" title=") == -1)
-							inputLine = in.readLine();
-						//System.out.println(inputLine);
-						extractTitle(inputLine);
+			//Find where the data starts
+			while (!in.readLine().contains("<thead><tr><th class=\"lm lft nwp\">"));
+			//Skip Three lines
+			in.readLine();
+			in.readLine();
+			in.readLine();
+			String getLine = in.readLine();
+			while (!getLine.contains("<tbody>")){
+				if (getLine.contains("week")){
+					FinancialClass fClass = new FinancialClass();
+					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
+					fClass.ticker = symbol;
+					fClass.year = Integer.parseInt(dateString.substring(0, 3));
+					if (dateString.contains("-03-")){
+						fClass.quarter = 1;
+					} else if (dateString.contains("-06-")){
+						fClass.quarter = 2;
+					} else if (dateString.contains("-09-")){
+						fClass.quarter = 3;
+					} else if (dateString.contains("-12-")){
+						fClass.quarter = 4;
 					}
+					fcList.add(fClass);
 				}
-				
-				//Finding Description of Product
-				if (inputLine.indexOf("sr-subinfo")>0)
-				{
-					inputLine = in.readLine();
-					while (inputLine.indexOf("smallText")== -1 && inputLine.indexOf("sr-info-description")== -1)
-						inputLine = in.readLine();
-					if (inputLine.indexOf("sr-info-description") > 0 )
-						inputLine = in.readLine();
-					extractDescription(inputLine);
-				}
-				
-				//Finding no result pages
-				if (inputLine.indexOf("Sorry")>0)
-				{
-					System.out.println("No Result");
-					break;
-				}
+				getLine = in.readLine();
 	        }
+			getLine = in.readLine();
+			int mainCounter = 5;
+			while (!getLine.contains("</tbody>")){
+				if (getLine.contains("<td class=\"r")){
+					getLine = getLine.substring(getLine.indexOf(">")+1);
+					getLine = getLine.substring(0, getLine.indexOf("<"));
+					if (getLine.contains("-") && getLine.length() == 1){
+						fcList.get(fcList.size() - mainCounter).financialData.add(0f);
+					} else {
+						fcList.get(fcList.size() - mainCounter).financialData.add(Float.parseFloat(getLine));
+					}
+					mainCounter--;
+				}
+			}
 			in.close();
 			
 			//If wrong page number is given
@@ -109,7 +104,7 @@ class WebParser {
 		}catch (IOException e) {
 			System.out.println("All circuits are busy, please try again...");
 		}
-        
+        return fcList;
 	}
 	
 }
