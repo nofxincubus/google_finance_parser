@@ -1,4 +1,6 @@
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -7,6 +9,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import au.com.bytecode.opencsv.CSVWriter;
 
 public class main_test {
 
@@ -20,28 +24,46 @@ public class main_test {
 			+ COMPANY_NAME_COLUMN + " VARCHAR(25),"
 			+ COMPANY_SYMBOL_COLUMN + " VARCHAR(20),"
 			+ COMPANY_MARKETCAP_COLUMN + " FLOAT) ENGINE=InnoDB;";
+	static WebParser webParser;
 	
     public static void main(String[] args) {
     	
     	ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
-    	/*
-    	companyList = CompanyClass.parseCSV("companylist.csv");
-    	for (CompanyClass cClass:companyList){
-    		System.out.println(cClass.companyName + " " + cClass.companySymbol + " " + cClass.marketCap);
-    	}*/
-        
-    	ArrayList<String> tickerList = new ArrayList<String>();
-    	tickerList.add("INTC");
-    	WebParser webParser = new WebParser(tickerList);
     	
-    	webParser.loadContent("INTC");
-    	for (FinancialClass fClass:webParser.companyData){
-    		System.out.println(fClass.year + " " + fClass.quarter + " " + fClass.eDataType);
+    	companyList = CompanyClass.parseCSV("leftover.csv");
+    	webParser = new WebParser();
+    	for (CompanyClass cClass:companyList){
+    		webParser.loadContent(cClass.companySymbol);
     	}
+    	
+    	writeCSV("yay.csv");
     	
     	
         
     }
+    public static void writeCSV(String fileName){
+		CSVWriter writer;
+		try {
+			writer = new CSVWriter(new FileWriter("./" + fileName));
+			for (FinancialClass fClass:webParser.companyData){
+				String[] data = new String [fClass.financialData.size() + 5];
+				data[0] = fClass.ticker;
+				data[1] = fClass.year + "";
+				data[2] = fClass.quarter + "";
+				data[3] = fClass.eDataType + "";
+				int counter = 4;
+				for (float num:fClass.financialData){
+					data[counter] = num + "";
+					counter++;
+				}
+				writer.writeNext(data);
+	    	}
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
     
     public void sqlStuff(){
     	Connection con = null;

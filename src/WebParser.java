@@ -14,31 +14,15 @@ import java.net.URLConnection;
 import java.util.ArrayList;
 
 class WebParser {
-
-	// Integer is preferred for numResult but for demo show purpose String will be used
-	//	int numResult;
-	String numResult = new String();
-	String pageNum = new String();
-	String searchString = new String();
-
-	ArrayList <String> companySymbol = new ArrayList<String>();
+	
 	public ArrayList <FinancialClass> companyData = new ArrayList<FinancialClass>();
 
-	//Constructor without page number specified
-	WebParser(ArrayList <String> symbol){
-		//correcting page for nextag website's page index.
-		companySymbol = symbol;
-		for (String sym:companySymbol){
-			loadContent(sym);
-		}
-	}
 
 	public void loadContent(String symbol)
 	{
 		//Specifying web address to search products
 		String webAddress =  "https://www.google.com/finance?q=NASDAQ%3A" + 
 				symbol + "&fstype=ii";
-		boolean pageIndexError = true;
 
 		//Output the complete address
 		System.out.println(webAddress);
@@ -55,17 +39,15 @@ class WebParser {
 							webCon.getInputStream()));
 
 			//Find where the data starts
-			parseQuarterlyFinancial(in, symbol);
-			this.parseYearlyFinancial(in, symbol);
-			this.parseQuarterlyBalanceSheet(in, symbol);
-			this.parseYearlyBalanceSheet(in, symbol);
-			this.parseQuarterlyCashFlow(in, symbol);
-			this.parseYearlyCashFlow(in, symbol);
+			if (parseQuarterlyFinancial(in, symbol)){
+				this.parseYearlyFinancial(in, symbol);
+				this.parseQuarterlyBalanceSheet(in, symbol);
+				this.parseYearlyBalanceSheet(in, symbol);
+				this.parseQuarterlyCashFlow(in, symbol);
+				this.parseYearlyCashFlow(in, symbol);
+			}
+			
 			in.close();
-
-			//If wrong page number is given
-			if (pageIndexError)
-				System.out.println("Wrong page Number!");
 
 
 		} catch (MalformedURLException e) {
@@ -75,17 +57,13 @@ class WebParser {
 		}
 	}
 
-	private void parseQuarterlyFinancial(BufferedReader in, String symbol){
+	private boolean parseQuarterlyFinancial(BufferedReader in, String symbol){
 		try {
-			while (!in.readLine().contains("<thead><tr><th class=\"lm lft nwp\">"));
-			//Skip Three lines
-			in.readLine();
-			in.readLine();
-			in.readLine();
+			while (!in.readLine().contains("<thead>"));
 			String getLine = in.readLine();
 			int mainCounter = 0;
 			while (!getLine.contains("<tbody>")){
-				if (getLine.contains("week")){
+				if (getLine.contains("ending")){
 					FinancialClass fClass = new FinancialClass();
 					fClass.eDataType = FinancialClass.DataType.eFinancial;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
@@ -135,16 +113,20 @@ class WebParser {
 			}
 		} catch (IOException e) {
 			System.out.println("All circuits are busy, please try again...");
+			return false;
+		} catch (NullPointerException npe){
+			return false;
 		}
+		return true;
 	}
 
 	private void parseYearlyFinancial(BufferedReader in, String symbol){
 		try {
-			while (!in.readLine().contains("<th class=\"rgt\">"));
+			while (!in.readLine().contains("<thead>"));
 			String getLine = in.readLine();
 			int mainCounter = 0;
 			while (!getLine.contains("<tbody>")){
-				if (getLine.contains("week")){
+				if (getLine.contains("ending")){
 					FinancialClass fClass = new FinancialClass();
 					fClass.eDataType = FinancialClass.DataType.eFinancial;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
@@ -302,7 +284,7 @@ class WebParser {
 			String getLine = in.readLine();
 			int mainCounter = 0;
 			while (!getLine.contains("<tbody>")){
-				if (getLine.contains("weeks")){
+				if (getLine.contains("ending")){
 					FinancialClass fClass = new FinancialClass();
 					fClass.eDataType = FinancialClass.DataType.eCashFlow;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
@@ -360,7 +342,7 @@ class WebParser {
 			String getLine = in.readLine();
 			int mainCounter = 0;
 			while (!getLine.contains("<tbody>")){
-				if (getLine.contains("weeks")){
+				if (getLine.contains("ending")){
 					FinancialClass fClass = new FinancialClass();
 					fClass.eDataType = FinancialClass.DataType.eCashFlow;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
