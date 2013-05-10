@@ -10,15 +10,35 @@ import java.util.logging.Logger;
 
 public class main_test {
 
+	static String COMPANY_TABLE_NAME = "company";
+	static String COMPANY_NAME_COLUMN = "name";
+	static String COMPANY_SYMBOL_COLUMN = "symbol";
+	static String COMPANY_MARKETCAP_COLUMN = "cap";
+
+	static String COMPANY_TABLE_QUERY_STRING = "CREATE TABLE IF NOT EXISTS " + 
+			COMPANY_TABLE_NAME + " (Id LONG PRIMARY KEY AUTO_INCREMENT, "
+			+ COMPANY_NAME_COLUMN + " VARCHAR(25),"
+			+ COMPANY_SYMBOL_COLUMN + " VARCHAR(20),"
+			+ COMPANY_MARKETCAP_COLUMN + " FLOAT) ENGINE=InnoDB;";
+	
     public static void main(String[] args) {
     	
     	ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
+    	/*
     	companyList = CompanyClass.parseCSV("companylist.csv");
     	for (CompanyClass cClass:companyList){
     		System.out.println(cClass.companyName + " " + cClass.companySymbol + " " + cClass.marketCap);
-    	}
+    	}*/
         
-    	FinancialClass fClass = WebParser.loadContent("INTC");
+    	ArrayList<String> tickerList = new ArrayList<String>();
+    	tickerList.add("INTC");
+    	WebParser webParser = new WebParser(tickerList);
+    	
+    	webParser.loadContent("INTC");
+    	for (FinancialClass fClass:webParser.companyData){
+    		System.out.println(fClass.year + " " + fClass.quarter + " " + fClass.eDataType);
+    	}
+    	
     	
         
     }

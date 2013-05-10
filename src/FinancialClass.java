@@ -2,22 +2,17 @@ import java.util.ArrayList;
 
 
 public class FinancialClass {
-	static String COMPANY_TABLE_NAME = "company";
-	static String COMPANY_NAME_COLUMN = "name";
-	static String COMPANY_SYMBOL_COLUMN = "symbol";
-	static String COMPANY_MARKETCAP_COLUMN = "cap";
-
-	static String COMPANY_TABLE_QUERY_STRING = "CREATE TABLE IF NOT EXISTS " + 
-			FinancialClass.COMPANY_TABLE_NAME + " (Id LONG PRIMARY KEY AUTO_INCREMENT, "
-			+ FinancialClass.COMPANY_NAME_COLUMN + " VARCHAR(25),"
-			+ FinancialClass.COMPANY_SYMBOL_COLUMN + " VARCHAR(20),"
-			+ FinancialClass.COMPANY_MARKETCAP_COLUMN + " FLOAT) ENGINE=InnoDB;";
+	public enum DataType{
+		eFinancial,
+		eBalanceSheet,
+		eCashFlow
+	}
+	
 	String ticker = "";
+	DataType eDataType;
 	int year;
 	int quarter;
 	ArrayList<Float> financialData = new ArrayList<Float>();
-	ArrayList<Float> balanceSheet = new ArrayList<Float>();
-	ArrayList<Float> cashFlow = new ArrayList<Float>();
 	/*
 	0. float Revenue;
 	1. float Other_Revenue;
