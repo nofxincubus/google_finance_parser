@@ -32,7 +32,7 @@ public class main_test {
 
 		ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
 
-		companyList = CompanyClass.parseCSV("nyselist.csv");
+		companyList = CompanyClass.parseCSV("leftovernyse.csv");
 		webParser = new WebParser();
 		
 		for (CompanyClass cClass:companyList){
