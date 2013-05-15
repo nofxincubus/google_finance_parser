@@ -21,7 +21,7 @@ class WebParser {
 	public void loadContent(String symbol)
 	{
 		//Specifying web address to search products
-		String webAddress =  "https://www.google.com/finance?q=NYSE%3A" + 
+		String webAddress =  "https://www.google.com/finance?q=NASDAQ%3A" + 
 				symbol + "&fstype=ii";
 
 		//Output the complete address
@@ -81,6 +81,7 @@ class WebParser {
 					}
 					fClass.eDataType = FinancialClass.DataType.eFinancial;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
+					fClass.dateString = dateString;
 					fClass.ticker = symbol;
 					fClass.year = Integer.parseInt(dateString.substring(0, 4));
 					if (dateString.contains("-03-")){
@@ -91,6 +92,8 @@ class WebParser {
 						fClass.quarter = 3;
 					} else if (dateString.contains("-12-")){
 						fClass.quarter = 4;
+					} else {
+						fClass.quarter = -1;
 					}
 					mainCounter++;
 					companyData.add(fClass);
@@ -161,6 +164,7 @@ class WebParser {
 					}
 					fClass.eDataType = FinancialClass.DataType.eFinancial;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
+					fClass.dateString = dateString;
 					fClass.ticker = symbol;
 					fClass.year = Integer.parseInt(dateString.substring(0, 4));
 					fClass.quarter = 0;
@@ -209,8 +213,10 @@ class WebParser {
 			while (!getLine.contains("<tbody>")){
 				if (getLine.contains("As")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.quarterHeader = getLine;
 					fClass.eDataType = FinancialClass.DataType.eBalanceSheet;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
+					fClass.dateString = dateString;
 					fClass.ticker = symbol;
 					fClass.year = Integer.parseInt(dateString.substring(0, 4));
 					if (dateString.contains("-03-")){
@@ -221,6 +227,8 @@ class WebParser {
 						fClass.quarter = 3;
 					} else if (dateString.contains("-12-")){
 						fClass.quarter = 4;
+					} else{
+						fClass.quarter = -1;
 					}
 					mainCounter++;
 					companyData.add(fClass);
@@ -267,8 +275,10 @@ class WebParser {
 			while (!getLine.contains("<tbody>")){
 				if (getLine.contains("As")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.quarterHeader = getLine;
 					fClass.eDataType = FinancialClass.DataType.eBalanceSheet;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
+					fClass.dateString = dateString;
 					fClass.ticker = symbol;
 					fClass.year = Integer.parseInt(dateString.substring(0, 4));
 					fClass.quarter = 0;
@@ -333,6 +343,7 @@ class WebParser {
 					}
 					fClass.eDataType = FinancialClass.DataType.eCashFlow;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
+					fClass.dateString = dateString;
 					fClass.ticker = symbol;
 					fClass.year = Integer.parseInt(dateString.substring(0, 4));
 					if (dateString.contains("-03-")){
@@ -343,6 +354,8 @@ class WebParser {
 						fClass.quarter = 3;
 					} else if (dateString.contains("-12-")){
 						fClass.quarter = 4;
+					} else {
+						fClass.quarter = -1;
 					}
 					mainCounter++;
 					companyData.add(fClass);
@@ -408,6 +421,7 @@ class WebParser {
 					}
 					fClass.eDataType = FinancialClass.DataType.eCashFlow;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
+					fClass.dateString = dateString;
 					fClass.ticker = symbol;
 					fClass.year = Integer.parseInt(dateString.substring(0, 4));					
 					fClass.quarter = 0;

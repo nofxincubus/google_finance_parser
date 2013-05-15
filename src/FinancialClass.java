@@ -13,7 +13,7 @@ public class FinancialClass {
 	int year;
 	int quarter;
 	int quarterCount;
-	String dateHeaderString;
+	String dateString;
 	String quarterCounterRange;
 	String quarterHeader;
 	ArrayList<Float> financialData = new ArrayList<Float>();
