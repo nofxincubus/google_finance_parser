@@ -21,7 +21,7 @@ class WebParser {
 	public void loadContent(String symbol)
 	{
 		//Specifying web address to search products
-		String webAddress =  "https://www.google.com/finance?q=NASDAQ%3A" + 
+		String webAddress =  "https://www.google.com/finance?q=NYSE%3A" + 
 				symbol + "&fstype=ii";
 
 		//Output the complete address

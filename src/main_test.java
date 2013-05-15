@@ -32,57 +32,17 @@ public class main_test {
 
 		ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
 
-		companyList = CompanyClass.parseCSV("nasdaqlist.csv");
+		companyList = CompanyClass.parseCSV("nyselist.csv");
 		webParser = new WebParser();
-		/*
+		
 		for (CompanyClass cClass:companyList){
 			webParser.loadContent(cClass.companySymbol);
 		}
-		*/
-		webParser.loadContent("INTC");
+		
+		//webParser.loadContent("INTC");
 		writeCSV();
 
 
-
-	}
-
-
-	public static void parseNasDaq(String fileName){
-		CSVWriter incomeWriter;
-		CSVWriter balanceWriter;
-		CSVWriter cashflowWriter;
-		CSVReader reader;
-		CSVReader incomeHeaderReader;
-		CSVReader balanceHeaderReader;
-		CSVReader cashflowHeaderReader;
-		try {
-			reader = new CSVReader(new FileReader("./" + fileName));
-			incomeHeaderReader = new CSVReader(new FileReader("./BalanceSheetHeadings.csv"));
-			balanceHeaderReader = new CSVReader(new FileReader("./CashFlowHeadings.csv" + fileName));
-			cashflowHeaderReader = new CSVReader(new FileReader("./IncomeStatementHeadings.csv" + fileName));
-			incomeWriter = new CSVWriter(new FileWriter("./income_nasdaq.csv"));
-			balanceWriter = new CSVWriter(new FileWriter("./balance_nasdaq.csv"));
-			cashflowWriter = new CSVWriter(new FileWriter("./cash_nasdaq.csv"));
-			String [] nextLine = incomeHeaderReader.readNext();
-			String [] newHeading = addIndex(nextLine);
-			
-			
-			ArrayList<String> stringArray = new ArrayList<String>();
-			while ((nextLine = reader.readNext()) != null) {
-				// nextLine[] is an array of values from the line
-				if (nextLine[3].contains("Financial")){
-					incomeWriter.writeNext(nextLine);
-				} else if (nextLine[3].contains("Balance")){
-					incomeWriter.writeNext(nextLine);
-				} else if (nextLine[3].contains("Financial")){
-					incomeWriter.writeNext(nextLine);
-				}
-			}
-			reader.close();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 
 	}
 	
@@ -112,9 +72,9 @@ public class main_test {
 			balanceHeaderReader = new CSVReader(new FileReader("./BalanceSheetHeadings.csv"));
 			cashflowHeaderReader = new CSVReader(new FileReader("./CashFlowHeadings.csv"));
 			incomeHeaderReader = new CSVReader(new FileReader("./IncomeStatementHeadings.csv"));
-			incomeWriter = new CSVWriter(new FileWriter("./income_nasdaq.csv"));
-			balanceWriter = new CSVWriter(new FileWriter("./balance_nasdaq.csv"));
-			cashflowWriter = new CSVWriter(new FileWriter("./cash_nasdaq.csv"));
+			incomeWriter = new CSVWriter(new FileWriter("./income_nyse.csv"));
+			balanceWriter = new CSVWriter(new FileWriter("./balance_nyse.csv"));
+			cashflowWriter = new CSVWriter(new FileWriter("./cash_nyse.csv"));
 			String[] incomeHeaderSans = incomeHeaderReader.readNext();
 			String[] balanceHeaderSans = balanceHeaderReader.readNext();
 			String[] cashflowHeaderSans = cashflowHeaderReader.readNext();
