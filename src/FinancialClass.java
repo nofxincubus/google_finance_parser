@@ -12,6 +12,10 @@ public class FinancialClass {
 	DataType eDataType;
 	int year;
 	int quarter;
+	int quarterCount;
+	String dateHeaderString;
+	String quarterCounterRange;
+	String quarterHeader;
 	ArrayList<Float> financialData = new ArrayList<Float>();
 	/*
 	0. float Revenue;

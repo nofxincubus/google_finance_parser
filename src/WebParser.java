@@ -21,7 +21,7 @@ class WebParser {
 	public void loadContent(String symbol)
 	{
 		//Specifying web address to search products
-		String webAddress =  "https://www.google.com/finance?q=NASDAQ%3A" + 
+		String webAddress =  "https://www.google.com/finance?q=NYSE%3A" + 
 				symbol + "&fstype=ii";
 
 		//Output the complete address
@@ -63,8 +63,22 @@ class WebParser {
 			String getLine = in.readLine();
 			int mainCounter = 0;
 			while (!getLine.contains("<tbody>")){
-				if (getLine.contains("ending")){
+				if (getLine.contains("week") || getLine.contains("month") || getLine.contains("day")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.quarterHeader = getLine;
+					if (getLine.contains("week")){
+						fClass.quarterCounterRange = "week";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1)); 
+					} else if (getLine.contains("month")){
+						fClass.quarterCounterRange = "month";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else if (getLine.contains("day")){
+						fClass.quarterCounterRange = "day";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else {
+						fClass.quarterCounterRange = getLine;
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					}
 					fClass.eDataType = FinancialClass.DataType.eFinancial;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
 					fClass.ticker = symbol;
@@ -126,8 +140,25 @@ class WebParser {
 			String getLine = in.readLine();
 			int mainCounter = 0;
 			while (!getLine.contains("<tbody>")){
-				if (getLine.contains("ending")){
+				if (getLine.contains("year") || getLine.contains("week") || getLine.contains("month") || getLine.contains("day")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.quarterHeader = getLine;
+					if (getLine.contains("week")){
+						fClass.quarterCounterRange = "week";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1)); 
+					} else if (getLine.contains("month")){
+						fClass.quarterCounterRange = "month";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else if (getLine.contains("day")){
+						fClass.quarterCounterRange = "day";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else if (getLine.contains("year")){
+						fClass.quarterCounterRange = "year";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else {
+						fClass.quarterCounterRange = getLine;
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					}
 					fClass.eDataType = FinancialClass.DataType.eFinancial;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
 					fClass.ticker = symbol;
@@ -240,7 +271,7 @@ class WebParser {
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
 					fClass.ticker = symbol;
 					fClass.year = Integer.parseInt(dateString.substring(0, 4));
-					fClass.quarter = 1;
+					fClass.quarter = 0;
 					mainCounter++;
 					companyData.add(fClass);
 				}
@@ -286,6 +317,20 @@ class WebParser {
 			while (!getLine.contains("<tbody>")){
 				if (getLine.contains("ending")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.quarterHeader = getLine;
+					if (getLine.contains("week")){
+						fClass.quarterCounterRange = "week";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1)); 
+					} else if (getLine.contains("month")){
+						fClass.quarterCounterRange = "month";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else if (getLine.contains("day")){
+						fClass.quarterCounterRange = "day";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else {
+						fClass.quarterCounterRange = getLine;
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					}
 					fClass.eDataType = FinancialClass.DataType.eCashFlow;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
 					fClass.ticker = symbol;
@@ -344,6 +389,23 @@ class WebParser {
 			while (!getLine.contains("<tbody>")){
 				if (getLine.contains("ending")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.quarterHeader = getLine;
+					if (getLine.contains("week")){
+						fClass.quarterCounterRange = "week";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1)); 
+					} else if (getLine.contains("month")){
+						fClass.quarterCounterRange = "month";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else if (getLine.contains("day")){
+						fClass.quarterCounterRange = "day";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else if (getLine.contains("year")){
+						fClass.quarterCounterRange = "year";
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					} else {
+						fClass.quarterCounterRange = getLine;
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+					}
 					fClass.eDataType = FinancialClass.DataType.eCashFlow;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
 					fClass.ticker = symbol;
