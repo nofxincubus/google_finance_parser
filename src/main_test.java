@@ -109,9 +109,9 @@ public class main_test {
 			int countFinancial= 0;
 			int countBalance= 0;
 			int countCashflow= 0;
-			incomeHeaderReader = new CSVReader(new FileReader("./BalanceSheetHeadings.csv"));
-			balanceHeaderReader = new CSVReader(new FileReader("./CashFlowHeadings.csv"));
-			cashflowHeaderReader = new CSVReader(new FileReader("./IncomeStatementHeadings.csv"));
+			balanceHeaderReader = new CSVReader(new FileReader("./BalanceSheetHeadings.csv"));
+			cashflowHeaderReader = new CSVReader(new FileReader("./CashFlowHeadings.csv"));
+			incomeHeaderReader = new CSVReader(new FileReader("./IncomeStatementHeadings.csv"));
 			incomeWriter = new CSVWriter(new FileWriter("./income_nasdaq.csv"));
 			balanceWriter = new CSVWriter(new FileWriter("./balance_nasdaq.csv"));
 			cashflowWriter = new CSVWriter(new FileWriter("./cash_nasdaq.csv"));

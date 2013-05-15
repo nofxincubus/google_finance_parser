@@ -68,16 +68,16 @@ class WebParser {
 					fClass.quarterHeader = getLine;
 					if (getLine.contains("week")){
 						fClass.quarterCounterRange = "week";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1)); 
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" "))); 
 					} else if (getLine.contains("month")){
 						fClass.quarterCounterRange = "month";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else if (getLine.contains("day")){
 						fClass.quarterCounterRange = "day";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else {
 						fClass.quarterCounterRange = getLine;
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					}
 					fClass.eDataType = FinancialClass.DataType.eFinancial;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
@@ -148,19 +148,19 @@ class WebParser {
 					fClass.quarterHeader = getLine;
 					if (getLine.contains("week")){
 						fClass.quarterCounterRange = "week";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1)); 
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" "))); 
 					} else if (getLine.contains("month")){
 						fClass.quarterCounterRange = "month";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else if (getLine.contains("day")){
 						fClass.quarterCounterRange = "day";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else if (getLine.contains("year")){
 						fClass.quarterCounterRange = "year";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else {
 						fClass.quarterCounterRange = getLine;
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					}
 					fClass.eDataType = FinancialClass.DataType.eFinancial;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
@@ -330,16 +330,16 @@ class WebParser {
 					fClass.quarterHeader = getLine;
 					if (getLine.contains("week")){
 						fClass.quarterCounterRange = "week";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1)); 
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" "))); 
 					} else if (getLine.contains("month")){
 						fClass.quarterCounterRange = "month";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else if (getLine.contains("day")){
 						fClass.quarterCounterRange = "day";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else {
 						fClass.quarterCounterRange = getLine;
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					}
 					fClass.eDataType = FinancialClass.DataType.eCashFlow;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
@@ -405,19 +405,19 @@ class WebParser {
 					fClass.quarterHeader = getLine;
 					if (getLine.contains("week")){
 						fClass.quarterCounterRange = "week";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1)); 
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" "))); 
 					} else if (getLine.contains("month")){
 						fClass.quarterCounterRange = "month";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else if (getLine.contains("day")){
 						fClass.quarterCounterRange = "day";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else if (getLine.contains("year")){
 						fClass.quarterCounterRange = "year";
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					} else {
 						fClass.quarterCounterRange = getLine;
-						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")-1));
+						fClass.quarterCount = Integer.parseInt(getLine.substring(0, getLine.indexOf(" ")));
 					}
 					fClass.eDataType = FinancialClass.DataType.eCashFlow;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
