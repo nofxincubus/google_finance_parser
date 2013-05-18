@@ -1,4 +1,5 @@
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -29,7 +30,70 @@ public class main_test {
 	static WebParser webParser;
 
 	public static void main(String[] args) {
+		
+		try {
+			//0 - index
+			//1 - 
+			CSVReader cashReader = new CSVReader(new FileReader("./income_nasdaq.csv"));
+			
+			//
+			
+			//
+			
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
 
+
+
+	}
+	
+	public static ArrayList<CompanyClass> parseTrailingTwelve(String fileName){
+		ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
+		CSVReader reader;
+		try {
+			reader = new CSVReader(new FileReader("./" + fileName));
+			String [] nextLine;
+			reader.readNext();
+			boolean nextTickerFlag = false;
+			String [] trailing = null;
+		    while ((nextLine = reader.readNext()) != null) {
+		    	//Quarterly Only and if moving onto nextTickerFlag
+		        if (!nextLine[3].contains("0") && !nextTickerFlag){
+		        	String [] currentLine = nextLine;
+		        	if (trailing == null){
+		        		trailing = currentLine;
+		        	} else {
+		        		int quaterCount =  Integer.parseInt(trailing[6]);
+		        		String quarterRange = trailing[5];
+		        		// If company like AMAT performs Mutiny on their data
+		        		if (quarterRange.contains("weeks")){
+		        			
+		        		} else if (quarterRange.contains("months")){
+		        			
+		        		} else {
+		        			System.out.println(quarterRange + " " + trailing[1]);
+		        		}
+		        			
+		        	}
+		        	
+		        	
+		        	
+		        }
+		    }
+		    reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+		
+		return companyList;
+	}
+	
+	//Aggregate all data
+	public static void runAggregate(){
 		ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
 
 		companyList = CompanyClass.parseCSV("leftovernyse.csv");
@@ -41,9 +105,6 @@ public class main_test {
 		
 		//webParser.loadContent("INTC");
 		writeCSV();
-
-
-
 	}
 	
 	public static String[] addIndex (String [] oldString){
