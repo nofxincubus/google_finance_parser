@@ -1,5 +1,4 @@
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -8,7 +7,11 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,23 +33,18 @@ public class main_test {
 	static WebParser webParser;
 
 	public static void main(String[] args) {
-		
-		try {
-			//0 - index
-			//1 - 
-			CSVReader cashReader = new CSVReader(new FileReader("./income_nasdaq.csv"));
-			
-			//
-			
-			//
-			
-			
-		} catch (FileNotFoundException e) {
+		Calendar currentEndDate = Calendar.getInstance();
+    	SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+    	try {
+    		currentEndDate.setTime(formatter.parse("10/31/2012"));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-
-
+    	Calendar currentStartDate = (Calendar) currentEndDate.clone();
+    	currentStartDate.add(Calendar.WEEK_OF_YEAR, (-1)*6);
+    	System.out.print(currentEndDate.get(Calendar.YEAR) + " " + currentEndDate.get(Calendar.MONTH) + " " + currentEndDate.get(Calendar.DAY_OF_MONTH) );
+    	System.out.print(currentStartDate.get(Calendar.YEAR) + " " + currentStartDate.get(Calendar.MONTH) + " " + currentStartDate.get(Calendar.DAY_OF_MONTH) );
 	}
 	
 	public static ArrayList<CompanyClass> parseTrailingTwelve(String fileName){
@@ -58,25 +56,25 @@ public class main_test {
 			reader.readNext();
 			boolean nextTickerFlag = false;
 			String [] trailing = null;
+			String [] current = reader.readNext();
 		    while ((nextLine = reader.readNext()) != null) {
 		    	//Quarterly Only and if moving onto nextTickerFlag
 		        if (!nextLine[3].contains("0") && !nextTickerFlag){
-		        	String [] currentLine = nextLine;
-		        	if (trailing == null){
-		        		trailing = currentLine;
-		        	} else {
-		        		int quaterCount =  Integer.parseInt(trailing[6]);
-		        		String quarterRange = trailing[5];
-		        		// If company like AMAT performs Mutiny on their data
-		        		if (quarterRange.contains("weeks")){
-		        			
-		        		} else if (quarterRange.contains("months")){
-		        			
-		        		} else {
-		        			System.out.println(quarterRange + " " + trailing[1]);
-		        		}
-		        			
-		        	}
+		        	String [] next = nextLine;
+		        	Calendar currentEndDate = Calendar.getInstance();
+		        	Calendar nextEndDate = Calendar.getInstance();
+		        	SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+		        	try {
+		        		currentEndDate.setTime(formatter.parse(current[7]));
+		        		nextEndDate.setTime(formatter.parse(next[7]));
+					} catch (ParseException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+		        	Calendar currentStartDate = getStartDate(currentEndDate,current);
+		        	Calendar nextStartDate = getStartDate(nextEndDate, next);
+		        	
+		        	
 		        	
 		        	
 		        	
@@ -87,9 +85,30 @@ public class main_test {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
 		
 		return companyList;
+	}
+	
+	public static Calendar getStartDate(Calendar endDate, String [] lineString){
+		int currentQuarterCount =  Integer.parseInt(lineString[6]);
+		String currentQuarterRange = lineString[5];
+		
+		Calendar currentStartDate = (Calendar) endDate.clone();
+    	currentStartDate.add(Calendar.WEEK_OF_YEAR, (-1)*monthToWeek(currentQuarterCount,currentQuarterRange));
+    	return currentStartDate;
+	}
+	
+	
+	public static int monthToWeek(int month, String range) {
+		float week = month;
+		if (range.contains("months")){
+			week = month * 4.34812f;
+		} else {
+			int boobies = 1;
+			System.out.print("" + boobies);
+		}
+		
+		return Math.round(week);
 	}
 	
 	//Aggregate all data
