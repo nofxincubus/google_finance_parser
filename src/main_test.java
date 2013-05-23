@@ -33,72 +33,176 @@ public class main_test {
 	static WebParser webParser;
 
 	public static void main(String[] args) {
-		Calendar currentEndDate = Calendar.getInstance();
-    	SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-    	try {
-    		currentEndDate.setTime(formatter.parse("10/31/2012"));
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-    	Calendar currentStartDate = (Calendar) currentEndDate.clone();
-    	currentStartDate.add(Calendar.WEEK_OF_YEAR, (-1)*6);
-    	System.out.print(currentEndDate.get(Calendar.YEAR) + " " + currentEndDate.get(Calendar.MONTH) + " " + currentEndDate.get(Calendar.DAY_OF_MONTH) );
-    	System.out.print(currentStartDate.get(Calendar.YEAR) + " " + currentStartDate.get(Calendar.MONTH) + " " + currentStartDate.get(Calendar.DAY_OF_MONTH) );
+		parseTrailingTwelve("nasdaq_cash_test.csv");
 	}
-	
-	public static ArrayList<CompanyClass> parseTrailingTwelve(String fileName){
-		ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
+
+	public static void parseTrailingTwelve(String fileName){
 		CSVReader reader;
+		CSVWriter writer;
 		try {
 			reader = new CSVReader(new FileReader("./" + fileName));
+			writer = new CSVWriter(new FileWriter("textTTM.csv"));
 			String [] nextLine;
 			reader.readNext();
 			boolean nextTickerFlag = false;
 			String [] trailing = null;
-			String [] current = reader.readNext();
-		    while ((nextLine = reader.readNext()) != null) {
-		    	//Quarterly Only and if moving onto nextTickerFlag
-		        if (!nextLine[3].contains("0") && !nextTickerFlag){
-		        	String [] next = nextLine;
-		        	Calendar currentEndDate = Calendar.getInstance();
-		        	Calendar nextEndDate = Calendar.getInstance();
-		        	SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-		        	try {
-		        		currentEndDate.setTime(formatter.parse(current[7]));
-		        		nextEndDate.setTime(formatter.parse(next[7]));
+			String [] current = reader.readNext();			
+			while ((nextLine = reader.readNext()) != null) {
+				if (trailing != null){
+					System.out.print(nextLine[1] + " " + trailing[1] + "\n");
+					if (!nextLine[1].equalsIgnoreCase(trailing[1])){
+						trailing = null;
+						nextTickerFlag = false;
+						current = nextLine;
+						continue;
+					}
+				}
+				
+				//Quarterly Only and if moving onto nextTickerFlag
+				System.out.print(nextLine[3] + " " + nextTickerFlag + "\n");
+				if (!nextLine[3].contains("0") && !nextTickerFlag){
+					String [] next = nextLine;
+					Calendar currentEndDate = Calendar.getInstance();
+					Calendar nextEndDate = Calendar.getInstance();
+					SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+					SimpleDateFormat formatterWTF = new SimpleDateFormat("yyyy-MM-dd");
+					try {
+						if (current[7].contains("/")){
+							currentEndDate.setTime(formatter.parse(current[7]));
+							nextEndDate.setTime(formatter.parse(next[7]));
+						} else if (current[7].contains("-")){
+							currentEndDate.setTime(formatterWTF.parse(current[7]));
+							nextEndDate.setTime(formatterWTF.parse(next[7]));
+						}
 					} catch (ParseException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
-		        	Calendar currentStartDate = getStartDate(currentEndDate,current);
-		        	Calendar nextStartDate = getStartDate(nextEndDate, next);
-		        	
-		        	
-		        	
-		        	
-		        	
-		        }
-		    }
-		    reader.close();
+
+					if (trailing == null){
+						trailing = current;
+						if (current[5].contains("week")){
+							trailing[6] = Float.parseFloat(current[6])*7 + "";
+							trailing[5] = "days";
+						} else if (current[5].contains("month")){
+							trailing[6] = Float.parseFloat(current[6])*30.4375 + "";
+							trailing[5] = "days";
+						}
+					} else {
+						if (current[5].contains("week")){
+							current[6] = Float.parseFloat(current[6])*7 + "";
+							current[5] = "days";
+						} else if (current[5].contains("month")){
+							current[6] = Float.parseFloat(current[6])*30.4375 + "";
+							current[5] = "days";
+						}
+						if (next[5].contains("week")){
+							next[6] = Float.parseFloat(next[6])*7 + "";
+							next[5] = "days";
+						} else if (next[5].contains("month")){
+							next[6] = Float.parseFloat(next[6])*30.4375 + "";
+							next[5] = "days";
+						}
+						Calendar currentStartDate = getStartDate(currentEndDate,current);
+						Calendar nextStartDate = getStartDate(nextEndDate, next);
+						currentEndDate.set(Calendar.MILLISECOND, 0);
+						float periodInDays = timeBetweenTwoDates(currentEndDate, currentStartDate);
+						System.out.print(periodInDays + "");
+						if (currentStartDate.before(nextEndDate)){
+							if (nextStartDate.before(currentStartDate)){
+								trailing = subtractData(trailing,
+										multiplyConstant(current, (nextEndDate.get(Calendar.DAY_OF_YEAR) 
+												- currentStartDate.get(Calendar.DAY_OF_YEAR))/periodInDays));
+								trailing = addData(trailing,next);
+							}
+						} else {
+							if (nextEndDate.before(currentStartDate) ||
+									nextEndDate.equals(currentStartDate)){
+								trailing = addData(trailing,next);
+							}
+						}
+						if (Float.parseFloat(trailing[6]) >= 366){
+							Calendar trailingEndDate = Calendar.getInstance();
+							try {
+								if (trailing[7].contains("/")){
+									trailingEndDate.setTime(formatter.parse(trailing[7]));
+								} else if (trailing[7].contains("-")){
+									trailingEndDate.setTime(formatterWTF.parse(trailing[7]));
+								}
+							} catch (ParseException e) {
+								// TODO Auto-generated catch block
+								e.printStackTrace();
+							}
+							trailingEndDate.add(Calendar.DAY_OF_YEAR, -366);
+							float nextPeriodInDays = timeBetweenTwoDates(trailingEndDate, nextStartDate);
+							trailing = subtractData(trailing,multiplyConstant(next,nextPeriodInDays/periodInDays));
+							writer.writeNext(trailing);
+							nextTickerFlag = true;
+						}
+						current = null;
+						current = next.clone();
+					}
+				}
+			}
+			reader.close();
+			writer.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		return companyList;
 	}
-	
+
+	public static String [] multiplyConstant(String []first, float constant){
+		String [] result = first.clone();
+		System.out.print(constant + "");
+		result[6] = (Float.parseFloat(result[6]) * constant) + "";
+		for (int i = 8;i < first.length;i++){
+			System.out.print(i + "." + first[i] + "\n");
+			if (first[i].contains(" ") || first[i].isEmpty())
+				break;
+			result[i] = Float.parseFloat(first[i])*constant + "";
+			
+		}
+		return result;
+	}
+
+	public static String [] subtractData(String []first, String []second){
+		String [] result = first;
+		result[6] = (Float.parseFloat(result[6]) - Float.parseFloat(second[6])) + "";
+		for (int i = 8;i < first.length;i++){
+			if (first[i].contains(" ") || first[i].isEmpty())
+				break;
+			result[i] = Float.parseFloat(first[i]) - Float.parseFloat(second[i]) + "";
+		}
+		return result;
+	}
+
+	public static String [] addData(String []first, String []second){
+		String [] result = first;
+		result[6] = (Float.parseFloat(result[6]) + Float.parseFloat(second[6])) + "";
+		for (int i = 8;i < first.length;i++){
+			if (first[i].contains(" ") || first[i].isEmpty())
+				break;
+			result[i] = Float.parseFloat(first[i]) + Float.parseFloat(second[i]) + "";
+		}
+		return result;
+	}
+
 	public static Calendar getStartDate(Calendar endDate, String [] lineString){
-		int currentQuarterCount =  Integer.parseInt(lineString[6]);
-		String currentQuarterRange = lineString[5];
+		long currentQuarterCount =  Math.round(Float.parseFloat(lineString[6]));
+		//String currentQuarterRange = lineString[5];
 		
 		Calendar currentStartDate = (Calendar) endDate.clone();
-    	currentStartDate.add(Calendar.WEEK_OF_YEAR, (-1)*monthToWeek(currentQuarterCount,currentQuarterRange));
-    	return currentStartDate;
+		currentStartDate.setTimeInMillis((long) (endDate.getTimeInMillis() - currentQuarterCount * 86400000));   
+		System.out.print("period day : " + lineString[6] + "\n");
+		System.out.print(endDate.get(Calendar.YEAR) + "/" + endDate.get(Calendar.MONTH) + "/" +
+		endDate.get(Calendar.DAY_OF_MONTH)  + "\n");
+		System.out.print(currentStartDate.get(Calendar.YEAR) + "/" + currentStartDate.get(Calendar.MONTH) + "/" +
+				currentStartDate.get(Calendar.DAY_OF_MONTH)  + "\n\n\n");
+		return currentStartDate;
 	}
-	
-	
+
+
 	public static int monthToWeek(int month, String range) {
 		float week = month;
 		if (range.contains("months")){
@@ -107,25 +211,29 @@ public class main_test {
 			int boobies = 1;
 			System.out.print("" + boobies);
 		}
-		
+
 		return Math.round(week);
 	}
 	
+	public static float timeBetweenTwoDates(Calendar calendar1, Calendar calendar2){
+	    return (calendar1.getTimeInMillis() - calendar2.getTimeInMillis())/(24 * 60 * 60 * 1000);
+	}
+
 	//Aggregate all data
 	public static void runAggregate(){
 		ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
 
 		companyList = CompanyClass.parseCSV("leftovernyse.csv");
 		webParser = new WebParser();
-		
+
 		for (CompanyClass cClass:companyList){
 			webParser.loadContent(cClass.companySymbol);
 		}
-		
+
 		//webParser.loadContent("INTC");
 		writeCSV();
 	}
-	
+
 	public static String[] addIndex (String [] oldString){
 		String []newString = new String[oldString.length + 1];
 		int counter = 1;
@@ -144,7 +252,7 @@ public class main_test {
 		CSVReader incomeHeaderReader;
 		CSVReader balanceHeaderReader;
 		CSVReader cashflowHeaderReader;
-		
+
 		try {
 			int countFinancial= 0;
 			int countBalance= 0;
@@ -217,7 +325,7 @@ public class main_test {
 					countCashflow++;
 					cashflowWriter.writeNext(data);
 				}
-				
+
 			}
 			incomeWriter.close();
 			balanceWriter.close();
