@@ -54,24 +54,38 @@ public class main_test {
 						trailing = null;
 						nextTickerFlag = false;
 						current = nextLine;
+						if (current[1].contains("AMAT")){
+							System.out.print("yay");
+						}
 						continue;
 					}
 				}
 				
 				//Quarterly Only and if moving onto nextTickerFlag
-				System.out.print(nextLine[3] + " " + nextTickerFlag + "\n");
 				if (!nextLine[3].contains("0") && !nextTickerFlag){
 					String [] next = nextLine;
+					if (trailing == null){
+						trailing = current;
+						if (trailing[5].contains("week")){
+							trailing[6] = Float.parseFloat(trailing[6])*7 + "";
+							trailing[5] = "days";
+						} else if (trailing[5].contains("month")){
+							trailing[6] = Float.parseFloat(trailing[6])*30.4375 + "";
+							trailing[5] = "days";
+						}
+						current = next.clone();
+						continue;
+					}
 					Calendar currentEndDate = Calendar.getInstance();
 					Calendar nextEndDate = Calendar.getInstance();
 					SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 					SimpleDateFormat formatterWTF = new SimpleDateFormat("yyyy-MM-dd");
 					try {
-						if (current[7].contains("/")){
-							currentEndDate.setTime(formatter.parse(current[7]));
+						if (trailing[7].contains("/")){
+							currentEndDate.setTime(formatter.parse(trailing[7]));
 							nextEndDate.setTime(formatter.parse(next[7]));
-						} else if (current[7].contains("-")){
-							currentEndDate.setTime(formatterWTF.parse(current[7]));
+						} else if (trailing[7].contains("-")){
+							currentEndDate.setTime(formatterWTF.parse(trailing[7]));
 							nextEndDate.setTime(formatterWTF.parse(next[7]));
 						}
 					} catch (ParseException e) {
@@ -79,16 +93,7 @@ public class main_test {
 						e.printStackTrace();
 					}
 
-					if (trailing == null){
-						trailing = current;
-						if (current[5].contains("week")){
-							trailing[6] = Float.parseFloat(current[6])*7 + "";
-							trailing[5] = "days";
-						} else if (current[5].contains("month")){
-							trailing[6] = Float.parseFloat(current[6])*30.4375 + "";
-							trailing[5] = "days";
-						}
-					} else {
+					 if (trailing != null) {
 						if (current[5].contains("week")){
 							current[6] = Float.parseFloat(current[6])*7 + "";
 							current[5] = "days";
@@ -103,16 +108,19 @@ public class main_test {
 							next[6] = Float.parseFloat(next[6])*30.4375 + "";
 							next[5] = "days";
 						}
-						Calendar currentStartDate = getStartDate(currentEndDate,current);
+						Calendar currentStartDate = getStartDate(currentEndDate,trailing);
 						Calendar nextStartDate = getStartDate(nextEndDate, next);
-						currentEndDate.set(Calendar.MILLISECOND, 0);
+						//currentEndDate.set(Calendar.MILLISECOND, 0);
+						System.out.print(currentEndDate.get(Calendar.YEAR) + " " + currentEndDate.get(Calendar.MONTH) + " " + 
+								currentEndDate.get(Calendar.DAY_OF_MONTH) + "\n");
+						System.out.print(currentStartDate.get(Calendar.YEAR) + " " + currentStartDate.get(Calendar.MONTH) + " " + 
+								currentStartDate.get(Calendar.DAY_OF_MONTH) + "\n");
 						float periodInDays = timeBetweenTwoDates(currentEndDate, currentStartDate);
-						System.out.print(periodInDays + "");
 						if (currentStartDate.before(nextEndDate)){
 							if (nextStartDate.before(currentStartDate)){
+								
 								trailing = subtractData(trailing,
-										multiplyConstant(current, (nextEndDate.get(Calendar.DAY_OF_YEAR) 
-												- currentStartDate.get(Calendar.DAY_OF_YEAR))/periodInDays));
+										multiplyConstant(trailing, timeBetweenTwoDates(nextEndDate,currentStartDate)/periodInDays));
 								trailing = addData(trailing,next);
 							}
 						} else {
@@ -121,7 +129,7 @@ public class main_test {
 								trailing = addData(trailing,next);
 							}
 						}
-						if (Float.parseFloat(trailing[6]) >= 366){
+						if (Float.parseFloat(trailing[6]) >= 364){
 							Calendar trailingEndDate = Calendar.getInstance();
 							try {
 								if (trailing[7].contains("/")){
@@ -134,12 +142,12 @@ public class main_test {
 								e.printStackTrace();
 							}
 							trailingEndDate.add(Calendar.DAY_OF_YEAR, -366);
-							float nextPeriodInDays = timeBetweenTwoDates(trailingEndDate, nextStartDate);
-							trailing = subtractData(trailing,multiplyConstant(next,nextPeriodInDays/periodInDays));
+							float diffPeriodInDays = timeBetweenTwoDates(trailingEndDate, nextStartDate);
+							float nextPeriodInDays = timeBetweenTwoDates(nextEndDate, nextStartDate);
+							trailing = subtractData(trailing,multiplyConstant(next,diffPeriodInDays/nextPeriodInDays));
 							writer.writeNext(trailing);
 							nextTickerFlag = true;
 						}
-						current = null;
 						current = next.clone();
 					}
 				}
@@ -154,10 +162,8 @@ public class main_test {
 
 	public static String [] multiplyConstant(String []first, float constant){
 		String [] result = first.clone();
-		System.out.print(constant + "");
 		result[6] = (Float.parseFloat(result[6]) * constant) + "";
 		for (int i = 8;i < first.length;i++){
-			System.out.print(i + "." + first[i] + "\n");
 			if (first[i].contains(" ") || first[i].isEmpty())
 				break;
 			result[i] = Float.parseFloat(first[i])*constant + "";
