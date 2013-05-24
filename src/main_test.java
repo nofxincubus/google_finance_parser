@@ -46,26 +46,22 @@ public class main_test {
 			reader.readNext();
 			boolean nextTickerFlag = false;
 			String [] trailing = null;
-			String [] current = reader.readNext();			
+			//String [] current;
+			String [] next;
 			while ((nextLine = reader.readNext()) != null) {
 				if (trailing != null){
 					System.out.print(nextLine[1] + " " + trailing[1] + "\n");
 					if (!nextLine[1].equalsIgnoreCase(trailing[1])){
 						trailing = null;
 						nextTickerFlag = false;
-						current = nextLine;
-						if (current[1].contains("AMAT")){
-							System.out.print("yay");
-						}
-						continue;
 					}
 				}
 				
 				//Quarterly Only and if moving onto nextTickerFlag
 				if (!nextLine[3].contains("0") && !nextTickerFlag){
-					String [] next = nextLine;
+					next = nextLine;
 					if (trailing == null){
-						trailing = current;
+						trailing = next;
 						if (trailing[5].contains("week")){
 							trailing[6] = Float.parseFloat(trailing[6])*7 + "";
 							trailing[5] = "days";
@@ -73,7 +69,6 @@ public class main_test {
 							trailing[6] = Float.parseFloat(trailing[6])*30.4375 + "";
 							trailing[5] = "days";
 						}
-						current = next.clone();
 						continue;
 					}
 					Calendar currentEndDate = Calendar.getInstance();
@@ -94,13 +89,6 @@ public class main_test {
 					}
 
 					 if (trailing != null) {
-						if (current[5].contains("week")){
-							current[6] = Float.parseFloat(current[6])*7 + "";
-							current[5] = "days";
-						} else if (current[5].contains("month")){
-							current[6] = Float.parseFloat(current[6])*30.4375 + "";
-							current[5] = "days";
-						}
 						if (next[5].contains("week")){
 							next[6] = Float.parseFloat(next[6])*7 + "";
 							next[5] = "days";
@@ -129,7 +117,7 @@ public class main_test {
 								trailing = addData(trailing,next);
 							}
 						}
-						if (Float.parseFloat(trailing[6]) >= 364){
+						if (Float.parseFloat(trailing[6]) >= 360){
 							Calendar trailingEndDate = Calendar.getInstance();
 							try {
 								if (trailing[7].contains("/")){
@@ -148,7 +136,7 @@ public class main_test {
 							writer.writeNext(trailing);
 							nextTickerFlag = true;
 						}
-						current = next.clone();
+						
 					}
 				}
 			}
