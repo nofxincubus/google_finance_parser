@@ -33,17 +33,118 @@ public class main_test {
 	static WebParser webParser;
 
 	public static void main(String[] args) {
-		parseTrailingTwelve("nasdaq_cash_test.csv");
+		
+		//combineData("income_nasdaq.csv","income_nyse_1.csv","income_nyse_2.csv","income.csv");
+		//combineData("balance_nasdaq.csv","balance_nyse_1.csv","balance_nyse_2.csv","balance.csv");
+		//combineData("cash_nasdaq.csv","cash_nyse_1.csv","cash_nyse_2.csv","cash.csv");
+		//combineIndustryData("nasdaqlist.csv","nyselist.csv","industry.csv");
+		parseTrailingTwelve("income.csv", "income_ttm.csv");
+		parseTrailingTwelve("cash.csv", "cash_ttm.csv");
+	}
+	
+	public static void combineData(String fileNameOne,String fileNameTwo,String fileNameThree,String outputName){
+		CSVReader readerOne;
+		CSVReader readerTwo;
+		CSVReader readerThree;
+		CSVWriter writer;
+		try {
+			readerOne = new CSVReader(new FileReader("./" + fileNameOne));
+			String oneExchange = "";
+			if (fileNameOne.contains("nyse")){
+				oneExchange = "_nyse";
+			} else if (fileNameOne.contains("nasdaq")){
+				oneExchange = "_nasdaq";
+			}
+			readerTwo = new CSVReader(new FileReader("./" + fileNameTwo));
+			String twoExchange = "";
+			if (fileNameTwo.contains("nyse")){
+				twoExchange = "_nyse";
+			} else if (fileNameTwo.contains("nasdaq")){
+				twoExchange = "_nasdaq";
+			}
+			readerThree = new CSVReader(new FileReader("./" + fileNameTwo));
+			String threeExchange = "";
+			if (fileNameThree.contains("nyse")){
+				threeExchange = "_nyse";
+			} else if (fileNameThree.contains("nasdaq")){
+				threeExchange = "_nasdaq";
+			}
+			writer = new CSVWriter(new FileWriter("./" + outputName));
+			String [] header = readerOne.readNext();
+			readerTwo.readNext();
+			writer.writeNext(header);
+			String [] nextLine;
+			int lastIndex = 0;
+			while ((nextLine = readerOne.readNext()) != null){
+				nextLine[1].replace(" ", "");
+				nextLine[1] = nextLine[1].trim() + oneExchange;
+				lastIndex = Integer.parseInt(nextLine[0]);
+				writer.writeNext(nextLine);
+			}
+			lastIndex++;
+			while ((nextLine = readerTwo.readNext()) != null){
+				nextLine[1].replace(" ", "");
+				nextLine[1] = nextLine[1].trim() + twoExchange;
+				nextLine[0] = lastIndex + "";
+				writer.writeNext(nextLine);
+				lastIndex++;
+			}
+			lastIndex++;
+			while ((nextLine = readerThree.readNext()) != null){
+				nextLine[1].replace(" ", "");
+				nextLine[1] = nextLine[1].trim() + threeExchange;
+				nextLine[0] = lastIndex + "";
+				writer.writeNext(nextLine);
+				lastIndex++;
+			}
+			readerOne.close();
+			readerTwo.close();
+			readerThree.close();
+			writer.close();
+		}  catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public static void combineIndustryData(String fileNameOne,String fileNameTwo,String outputName){
+		CSVReader readerOne;
+		CSVReader readerTwo;
+		CSVWriter writer;
+		try {
+			readerOne = new CSVReader(new FileReader("./" + fileNameOne));
+			readerTwo = new CSVReader(new FileReader("./" + fileNameTwo));
+			writer = new CSVWriter(new FileWriter("./" + outputName));
+			String [] header = readerOne.readNext();
+			readerTwo.readNext();
+			writer.writeNext(header);
+			String [] nextLine;
+			while ((nextLine = readerOne.readNext()) != null){
+				nextLine[0].replace(" ", "");
+				nextLine[0] = nextLine[0].trim() + "_nasdaq";
+				writer.writeNext(nextLine);
+			}
+			while ((nextLine = readerTwo.readNext()) != null){
+				nextLine[0].replace(" ", "");
+				nextLine[0] = nextLine[0].trim() + "_nyse";
+				writer.writeNext(nextLine);
+			}
+			readerOne.close();
+			readerTwo.close();
+			writer.close();
+		}  catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public static void parseTrailingTwelve(String fileName){
+	public static void parseTrailingTwelve(String fileName, String outputName){
 		CSVReader reader;
 		CSVWriter writer;
 		try {
 			reader = new CSVReader(new FileReader("./" + fileName));
-			writer = new CSVWriter(new FileWriter("textTTM.csv"));
+			writer = new CSVWriter(new FileWriter("./" + outputName));
 			String [] nextLine;
-			reader.readNext();
+			String [] heading = reader.readNext();
+			writer.writeNext(heading);
 			boolean nextTickerFlag = false;
 			String [] trailing = null;
 			//String [] current;
