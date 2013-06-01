@@ -11,7 +11,6 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,15 +30,15 @@ public class main_test {
 			+ COMPANY_SYMBOL_COLUMN + " VARCHAR(20),"
 			+ COMPANY_MARKETCAP_COLUMN + " FLOAT) ENGINE=InnoDB;";
 	static WebParser webParser;
-
+	
 	public static void main(String[] args) {
 		
 		//combineData("income_nasdaq.csv","income_nyse_1.csv","income_nyse_2.csv","income.csv");
 		//combineData("balance_nasdaq.csv","balance_nyse_1.csv","balance_nyse_2.csv","balance.csv");
 		//combineData("cash_nasdaq.csv","cash_nyse_1.csv","cash_nyse_2.csv","cash.csv");
 		//combineIndustryData("nasdaqlist.csv","nyselist.csv","industry.csv");
-		parseTrailingTwelve("income.csv", "income_ttm.csv");
-		parseTrailingTwelve("cash.csv", "cash_ttm.csv");
+		//parseTrailingTwelve("income.csv", "income_ttm.csv");
+		//parseTrailingTwelve("cash.csv", "cash_ttm.csv");
 	}
 	
 	public static void combineData(String fileNameOne,String fileNameTwo,String fileNameThree,String outputName){
@@ -62,7 +61,7 @@ public class main_test {
 			} else if (fileNameTwo.contains("nasdaq")){
 				twoExchange = "_nasdaq";
 			}
-			readerThree = new CSVReader(new FileReader("./" + fileNameTwo));
+			readerThree = new CSVReader(new FileReader("./" + fileNameThree));
 			String threeExchange = "";
 			if (fileNameThree.contains("nyse")){
 				threeExchange = "_nyse";
@@ -72,6 +71,7 @@ public class main_test {
 			writer = new CSVWriter(new FileWriter("./" + outputName));
 			String [] header = readerOne.readNext();
 			readerTwo.readNext();
+			readerThree.readNext();
 			writer.writeNext(header);
 			String [] nextLine;
 			int lastIndex = 0;
