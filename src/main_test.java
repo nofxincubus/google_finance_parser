@@ -33,6 +33,25 @@ public class main_test {
 	
 	public static void main(String[] args) {
 		
+		ArrayList<String> symbols = CompanyClass.parseSymbols("industry.csv");
+		YahooParser yahooParser = new YahooParser();
+		int i = 0;
+		int tempCounter = 0;
+		String getSymbolString = "";
+		while (i < symbols.size()){
+			if (tempCounter < 200){
+				getSymbolString = getSymbolString + symbols.get(i) + "+";
+				tempCounter++;
+				if (tempCounter == 200){
+					getSymbolString = getSymbolString.substring(0, getSymbolString.length()-1);
+					System.out.println(getSymbolString);
+					getSymbolString = "";
+					tempCounter = 0;
+				}
+			}
+			i++;
+		}
+		
 		//combineData("income_nasdaq.csv","income_nyse_1.csv","income_nyse_2.csv","income.csv");
 		//combineData("balance_nasdaq.csv","balance_nyse_1.csv","balance_nyse_2.csv","balance.csv");
 		//combineData("cash_nasdaq.csv","cash_nyse_1.csv","cash_nyse_2.csv","cash.csv");
