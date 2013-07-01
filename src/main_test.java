@@ -1,7 +1,13 @@
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.io.Writer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -38,20 +44,46 @@ public class main_test {
 		int i = 0;
 		int tempCounter = 0;
 		String getSymbolString = "";
+		File statText = new File("./YahooWorks.csv");
+        FileOutputStream is = null;
+		try {
+			is = new FileOutputStream(statText);
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+        OutputStreamWriter osw = new OutputStreamWriter(is);    
+        BufferedWriter w = new BufferedWriter(osw);
 		while (i < symbols.size()){
 			if (tempCounter < 200){
 				getSymbolString = getSymbolString + symbols.get(i) + "+";
 				tempCounter++;
 				if (tempCounter == 200){
 					getSymbolString = getSymbolString.substring(0, getSymbolString.length()-1);
+					yahooParser.loadContent(getSymbolString, w);
+					
 					System.out.println(getSymbolString);
 					getSymbolString = "";
 					tempCounter = 0;
+					try {
+						Thread.sleep(500);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
 				}
 			}
 			i++;
 		}
 		
+		
+		
+		try {
+			w.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//combineData("income_nasdaq.csv","income_nyse_1.csv","income_nyse_2.csv","income.csv");
 		//combineData("balance_nasdaq.csv","balance_nyse_1.csv","balance_nyse_2.csv","balance.csv");
 		//combineData("cash_nasdaq.csv","cash_nyse_1.csv","cash_nyse_2.csv","cash.csv");
