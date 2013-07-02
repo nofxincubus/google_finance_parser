@@ -39,6 +39,9 @@ public class main_test {
 	
 	public static void main(String[] args) {
 		
+	}
+	
+	public static void yahooPrices(){
 		ArrayList<String> symbols = CompanyClass.parseSymbols("industry.csv");
 		YahooParser yahooParser = new YahooParser();
 		int i = 0;
