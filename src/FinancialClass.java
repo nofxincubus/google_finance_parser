@@ -16,6 +16,7 @@ public class FinancialClass {
 	String dateString;
 	String quarterCounterRange;
 	String quarterHeader;
+	String currency;
 	ArrayList<Float> financialData = new ArrayList<Float>();
 	/*
 	0. float Revenue;

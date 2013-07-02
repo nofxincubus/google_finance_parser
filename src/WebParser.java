@@ -20,6 +20,7 @@ class WebParser {
 
 	public void loadContent(String symbol)
 	{
+		
 		//Specifying web address to search products
 		String webAddress =  "https://www.google.com/finance?q=NYSE%3A" + 
 				symbol + "&fstype=ii";
@@ -60,11 +61,18 @@ class WebParser {
 	private boolean parseQuarterlyFinancial(BufferedReader in, String symbol){
 		try {
 			while (!in.readLine().contains("<thead>"));
+			
 			String getLine = in.readLine();
+			String currentCurrency = "";
 			int mainCounter = 0;
 			while (!getLine.contains("<tbody>")){
+				if (getLine.contains("except")){
+					
+					currentCurrency = getLine;
+				}
 				if (getLine.contains("week") || getLine.contains("month") || getLine.contains("day")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.currency = currentCurrency;
 					fClass.quarterHeader = getLine;
 					if (getLine.contains("week")){
 						fClass.quarterCounterRange = "week";
