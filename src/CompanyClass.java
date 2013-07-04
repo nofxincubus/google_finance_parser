@@ -63,14 +63,13 @@ public class CompanyClass {
 		try {
 			reader = new CSVReader(new FileReader("./" + fileName));
 			String [] nextLine;
-			CompanyClass newCompany;
 			reader.readNext();
 		    while ((nextLine = reader.readNext()) != null) {
 		        // nextLine[] is an array of values from the line
 		    	String name = nextLine[0].substring(0, nextLine[0].indexOf("_"));
 	    		name = name.replace("^", ".");
 	    		name = name.replace("/", ".");
-		    	symbolList.add(name);
+		    	symbolList.add(nextLine[0]);
 		    }
 		    reader.close();
 		} catch (IOException e) {

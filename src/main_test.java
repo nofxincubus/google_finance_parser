@@ -38,7 +38,7 @@ public class main_test {
 	static WebParser webParser;
 	
 	public static void main(String[] args) {
-		
+		runAggregate();
 	}
 	
 	public static void yahooPrices(){
@@ -370,16 +370,26 @@ public class main_test {
 
 	//Aggregate all data
 	public static void runAggregate(){
-		ArrayList<CompanyClass> companyList = new ArrayList<CompanyClass>();
+		ArrayList<String> companyList = new ArrayList<String>();
 
-		companyList = CompanyClass.parseCSV("leftovernyse.csv");
+		companyList = CompanyClass.parseSymbols("industry.csv");
 		webParser = new WebParser();
-
-		for (CompanyClass cClass:companyList){
-			webParser.loadContent(cClass.companySymbol);
+		
+		
+		int counter = 0;
+		for (String cClass:companyList){
+			if (counter == 499){
+				try {
+					Thread.sleep(10*60000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				counter = 0;
+			}
+			webParser.loadContent(cClass);
+			counter++;
 		}
 
-		//webParser.loadContent("INTC");
 		writeCSV();
 	}
 
@@ -409,18 +419,18 @@ public class main_test {
 			balanceHeaderReader = new CSVReader(new FileReader("./BalanceSheetHeadings.csv"));
 			cashflowHeaderReader = new CSVReader(new FileReader("./CashFlowHeadings.csv"));
 			incomeHeaderReader = new CSVReader(new FileReader("./IncomeStatementHeadings.csv"));
-			incomeWriter = new CSVWriter(new FileWriter("./income_nyse.csv"));
-			balanceWriter = new CSVWriter(new FileWriter("./balance_nyse.csv"));
-			cashflowWriter = new CSVWriter(new FileWriter("./cash_nyse.csv"));
+			incomeWriter = new CSVWriter(new FileWriter("./income_7413.csv"));
+			balanceWriter = new CSVWriter(new FileWriter("./balance_7413.csv"));
+			cashflowWriter = new CSVWriter(new FileWriter("./cash_7413.csv"));
 			String[] incomeHeaderSans = incomeHeaderReader.readNext();
 			String[] balanceHeaderSans = balanceHeaderReader.readNext();
 			String[] cashflowHeaderSans = cashflowHeaderReader.readNext();
 			incomeHeaderReader.close();
 			balanceHeaderReader.close();
 			cashflowHeaderReader.close();
-			String[] header = new String [incomeHeaderSans.length + 9];
-			String[] header1 = new String [balanceHeaderSans.length + 9];
-			String[] header2 = new String [cashflowHeaderSans.length + 9];
+			String[] header = new String [incomeHeaderSans.length + 10];
+			String[] header1 = new String [balanceHeaderSans.length + 10];
+			String[] header2 = new String [cashflowHeaderSans.length + 10];
 			header[0] = header1[0] = header2[0] = "index";
 			header[1] = header1[1] = header2[1] = "ticker";
 			header[2] = header1[2] = header2[2] = "year";
@@ -429,17 +439,18 @@ public class main_test {
 			header[5] = header1[5] = header2[5] = "QuarterRange";
 			header[6] = header1[6] = header2[6] = "QuarterCountperRange";
 			header[7] = header1[7] = header2[7] = "DateString";
-			int hCounter = 8;
+			header[8] = header1[8] = header2[8] = "CurrencyHeader";
+			int hCounter = 9;
 			for (String num:incomeHeaderSans){
 				header[hCounter] = num;
 				hCounter++;
 			}
-			hCounter = 8;
+			hCounter = 9;
 			for (String num:balanceHeaderSans){
 				header1[hCounter] = num;
 				hCounter++;
 			}
-			hCounter = 8;
+			hCounter = 9;
 			for (String num:cashflowHeaderSans){
 				header2[hCounter] = num;
 				hCounter++;
@@ -448,7 +459,7 @@ public class main_test {
 			balanceWriter.writeNext(header1);
 			cashflowWriter.writeNext(header2);
 			for (FinancialClass fClass:webParser.companyData){
-				String[] data = new String [fClass.financialData.size() + 9];
+				String[] data = new String [fClass.financialData.size() + 10];
 				data[1] = fClass.ticker;
 				data[2] = fClass.year + "";
 				data[3] = fClass.quarter + "";
@@ -456,7 +467,8 @@ public class main_test {
 				data[5] = fClass.quarterCounterRange + "s";
 				data[6] = fClass.quarterCount + "";
 				data[7] = fClass.dateString;
-				int counter = 8;
+				data[8] = fClass.currency;
+				int counter = 9;
 				for (float num:fClass.financialData){
 					data[counter] = num + "";
 					counter++;

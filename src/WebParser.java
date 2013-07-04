@@ -20,10 +20,21 @@ class WebParser {
 
 	public void loadContent(String symbol)
 	{
-		
+		String name = symbol.substring(0, symbol.indexOf("_"));
+		String exchange = symbol.substring(symbol.indexOf("_")+1,symbol.length());
+		name = name.replace("^", ".");
+		name = name.replace("/", ".");		
 		//Specifying web address to search products
-		String webAddress =  "https://www.google.com/finance?q=NYSE%3A" + 
-				symbol + "&fstype=ii";
+		String webAddress = "";
+		if (exchange.contains("nyse")){
+			webAddress =  "https://www.google.com/finance?q=NYSE%3A" + 
+					name + "&fstype=ii";
+		} else if (exchange.contains("nasdaq")){
+			webAddress = "https://www.google.com/finance?q=NASDAQ%3A" + 
+					name + "&fstype=ii";
+		} else {
+			return;
+		}
 
 		//Output the complete address
 		System.out.println(webAddress);
@@ -111,6 +122,7 @@ class WebParser {
 			}
 			getLine = in.readLine();
 			int secondaryCounter = mainCounter;
+			
 			while (!getLine.contains("</tbody>")){
 				if (getLine.contains("<td class=\"r")){
 					String originalGetLine = getLine;
@@ -150,9 +162,15 @@ class WebParser {
 			while (!in.readLine().contains("<thead>"));
 			String getLine = in.readLine();
 			int mainCounter = 0;
+			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
+				if (getLine.contains("except")){
+					
+					currentCurrency = getLine;
+				}
 				if (getLine.contains("year") || getLine.contains("week") || getLine.contains("month") || getLine.contains("day")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.currency = currentCurrency;
 					fClass.quarterHeader = getLine;
 					if (getLine.contains("week")){
 						fClass.quarterCounterRange = "week";
@@ -218,9 +236,15 @@ class WebParser {
 			while (!in.readLine().contains("<thead>"));
 			String getLine = in.readLine();
 			int mainCounter = 0;
+			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
+				if (getLine.contains("except")){
+					
+					currentCurrency = getLine;
+				}
 				if (getLine.contains("As")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.currency = currentCurrency;
 					fClass.quarterHeader = getLine;
 					fClass.eDataType = FinancialClass.DataType.eBalanceSheet;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
@@ -280,9 +304,14 @@ class WebParser {
 			while (!in.readLine().contains("<thead>"));
 			String getLine = in.readLine();
 			int mainCounter = 0;
+			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
+				if (getLine.contains("except")){
+					currentCurrency = getLine;
+				}
 				if (getLine.contains("As")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.currency = currentCurrency;
 					fClass.quarterHeader = getLine;
 					fClass.eDataType = FinancialClass.DataType.eBalanceSheet;
 					String dateString = getLine.substring(getLine.indexOf("20"), getLine.length());
@@ -332,9 +361,14 @@ class WebParser {
 			while (!in.readLine().contains("<thead>"));
 			String getLine = in.readLine();
 			int mainCounter = 0;
+			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
+				if (getLine.contains("except")){
+					currentCurrency = getLine;
+				}
 				if (getLine.contains("ending")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.currency = currentCurrency;
 					fClass.quarterHeader = getLine;
 					if (getLine.contains("week")){
 						fClass.quarterCounterRange = "week";
@@ -407,9 +441,14 @@ class WebParser {
 			while (!in.readLine().contains("<thead>"));
 			String getLine = in.readLine();
 			int mainCounter = 0;
+			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
+				if (getLine.contains("except")){
+					currentCurrency = getLine;
+				}
 				if (getLine.contains("ending")){
 					FinancialClass fClass = new FinancialClass();
+					fClass.currency = currentCurrency;
 					fClass.quarterHeader = getLine;
 					if (getLine.contains("week")){
 						fClass.quarterCounterRange = "week";
