@@ -80,5 +80,51 @@ public class CompanyClass {
 		
 		return symbolList;
 	}
+	
+	public static ArrayList<String> parseSymbolsOnly(String fileName){
+		ArrayList<String> symbolList = new ArrayList<String>();
+		CSVReader reader;
+		try {
+			reader = new CSVReader(new FileReader("./" + fileName));
+			String [] nextLine;
+			reader.readNext();
+		    while ((nextLine = reader.readNext()) != null) {
+		        // nextLine[] is an array of values from the line
+		    	String name = nextLine[0].substring(0, nextLine[0].indexOf("_"));
+	    		name = name.replace("^", ".");
+	    		name = name.replace("/", ".");
+		    	symbolList.add(name);
+		    }
+		    reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+		
+		return symbolList;
+	}
+	
+	public static ArrayList<String> parseExchangeOnly(String fileName){
+		ArrayList<String> symbolList = new ArrayList<String>();
+		CSVReader reader;
+		try {
+			reader = new CSVReader(new FileReader("./" + fileName));
+			String [] nextLine;
+			reader.readNext();
+		    while ((nextLine = reader.readNext()) != null) {
+		        // nextLine[] is an array of values from the line
+		    	String name = nextLine[0].substring(nextLine[0].indexOf("_") + 1, nextLine[0].length());
+		    	symbolList.add(name);
+		    }
+		    reader.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	    
+		
+		return symbolList;
+	}
 
 }

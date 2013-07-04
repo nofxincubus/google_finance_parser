@@ -38,11 +38,15 @@ public class main_test {
 	static WebParser webParser;
 	
 	public static void main(String[] args) {
-		runAggregate();
+		//runAggregate();
+		//yahooPrices();
+		parseTrailingTwelve("income_7413.csv", "income_ttm_7413.csv");
+		parseTrailingTwelve("cash_7413.csv", "cash_ttm_7413.csv");
 	}
 	
 	public static void yahooPrices(){
-		ArrayList<String> symbols = CompanyClass.parseSymbols("industry.csv");
+		ArrayList<String> symbols = CompanyClass.parseSymbolsOnly("industry.csv");
+		ArrayList<String> exchange = CompanyClass.parseExchangeOnly("industry.csv");
 		YahooParser yahooParser = new YahooParser();
 		int i = 0;
 		int tempCounter = 0;
@@ -57,16 +61,17 @@ public class main_test {
 		}
         OutputStreamWriter osw = new OutputStreamWriter(is);    
         BufferedWriter w = new BufferedWriter(osw);
+        ArrayList<String> exchangeTwo = new ArrayList<String>();
 		while (i < symbols.size()){
 			if (tempCounter < 200){
 				getSymbolString = getSymbolString + symbols.get(i) + "+";
+				exchangeTwo.add(exchange.get(i));
 				tempCounter++;
 				if (tempCounter == 200){
 					getSymbolString = getSymbolString.substring(0, getSymbolString.length()-1);
-					yahooParser.loadContent(getSymbolString, w);
-					
-					System.out.println(getSymbolString);
+					yahooParser.loadContent(getSymbolString, w,exchangeTwo);
 					getSymbolString = "";
+					exchangeTwo.clear();
 					tempCounter = 0;
 					try {
 						Thread.sleep(500);
@@ -78,7 +83,8 @@ public class main_test {
 			}
 			i++;
 		}
-		
+		getSymbolString = getSymbolString.substring(0, getSymbolString.length()-1);
+		yahooParser.loadContent(getSymbolString, w,exchangeTwo);
 		
 		
 		try {
@@ -306,7 +312,7 @@ public class main_test {
 	public static String [] multiplyConstant(String []first, float constant){
 		String [] result = first.clone();
 		result[6] = (Float.parseFloat(result[6]) * constant) + "";
-		for (int i = 8;i < first.length;i++){
+		for (int i = 9;i < first.length;i++){
 			if (first[i].contains(" ") || first[i].isEmpty())
 				break;
 			result[i] = Float.parseFloat(first[i])*constant + "";
@@ -318,7 +324,7 @@ public class main_test {
 	public static String [] subtractData(String []first, String []second){
 		String [] result = first;
 		result[6] = (Float.parseFloat(result[6]) - Float.parseFloat(second[6])) + "";
-		for (int i = 8;i < first.length;i++){
+		for (int i = 9;i < first.length;i++){
 			if (first[i].contains(" ") || first[i].isEmpty())
 				break;
 			result[i] = Float.parseFloat(first[i]) - Float.parseFloat(second[i]) + "";
@@ -329,7 +335,7 @@ public class main_test {
 	public static String [] addData(String []first, String []second){
 		String [] result = first;
 		result[6] = (Float.parseFloat(result[6]) + Float.parseFloat(second[6])) + "";
-		for (int i = 8;i < first.length;i++){
+		for (int i = 9;i < first.length;i++){
 			if (first[i].contains(" ") || first[i].isEmpty())
 				break;
 			result[i] = Float.parseFloat(first[i]) + Float.parseFloat(second[i]) + "";
