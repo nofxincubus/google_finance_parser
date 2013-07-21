@@ -39,9 +39,9 @@ public class main_test {
 	
 	public static void main(String[] args) {
 		//runAggregate();
-		//yahooPrices();
-		parseTrailingTwelve("income_7413.csv", "income_ttm_7413.csv");
-		parseTrailingTwelve("cash_7413.csv", "cash_ttm_7413.csv");
+		yahooPrices();
+		//parseTrailingTwelve("income_7413.csv", "income_ttm_7413.csv");
+		//parseTrailingTwelve("cash_7413.csv", "cash_ttm_7413.csv");
 	}
 	
 	public static void yahooPrices(){
@@ -51,7 +51,7 @@ public class main_test {
 		int i = 0;
 		int tempCounter = 0;
 		String getSymbolString = "";
-		File statText = new File("./YahooWorks.csv");
+		File statText = new File("./YahooWorks_71313.csv");
         FileOutputStream is = null;
 		try {
 			is = new FileOutputStream(statText);

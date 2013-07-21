@@ -91,7 +91,7 @@ public class CompanyClass {
 		    while ((nextLine = reader.readNext()) != null) {
 		        // nextLine[] is an array of values from the line
 		    	String name = nextLine[0].substring(0, nextLine[0].indexOf("_"));
-	    		name = name.replace("^", ".");
+	    		name = name.replace("^", "-");
 	    		name = name.replace("/", ".");
 		    	symbolList.add(name);
 		    }
