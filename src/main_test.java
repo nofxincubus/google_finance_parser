@@ -36,14 +36,48 @@ public class main_test {
 			+ COMPANY_SYMBOL_COLUMN + " VARCHAR(20),"
 			+ COMPANY_MARKETCAP_COLUMN + " FLOAT) ENGINE=InnoDB;";
 	static WebParser webParser;
-	
+
 	public static void main(String[] args) {
+		getIndustry();
 		//runAggregate();
-		yahooPrices();
+		//yahooPrices();
 		//parseTrailingTwelve("income_7413.csv", "income_ttm_7413.csv");
 		//parseTrailingTwelve("cash_7413.csv", "cash_ttm_7413.csv");
 	}
-	
+
+	public static void getIndustry(){
+		IndustryParser indParser = new IndustryParser();
+		ArrayList<String> companyList = new ArrayList<String>();
+
+		//companyList = CompanyClass.parseSymbols("industry.csv");
+		companyList.add("aapl_nasdaq");
+		System.out.println(indParser.industryData.get(0));
+		CSVWriter incomeWriter;
+		try {
+			incomeWriter = new CSVWriter(new FileWriter("./industry_new.csv"));
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		int counter = 0;
+		for (String cClass:companyList){
+			if (counter == 499){
+				try {
+					Thread.sleep(10*60000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+				counter = 0;
+			}
+			indParser.loadContent(cClass);
+			counter++;
+		}
+
+
+
+	}
+
 	public static void yahooPrices(){
 		ArrayList<String> symbols = CompanyClass.parseSymbolsOnly("industry.csv");
 		ArrayList<String> exchange = CompanyClass.parseExchangeOnly("industry.csv");
@@ -52,16 +86,16 @@ public class main_test {
 		int tempCounter = 0;
 		String getSymbolString = "";
 		File statText = new File("./YahooWorks_71313.csv");
-        FileOutputStream is = null;
+		FileOutputStream is = null;
 		try {
 			is = new FileOutputStream(statText);
 		} catch (FileNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-        OutputStreamWriter osw = new OutputStreamWriter(is);    
-        BufferedWriter w = new BufferedWriter(osw);
-        ArrayList<String> exchangeTwo = new ArrayList<String>();
+		OutputStreamWriter osw = new OutputStreamWriter(is);    
+		BufferedWriter w = new BufferedWriter(osw);
+		ArrayList<String> exchangeTwo = new ArrayList<String>();
 		while (i < symbols.size()){
 			if (tempCounter < 200){
 				getSymbolString = getSymbolString + symbols.get(i) + "+";
@@ -85,8 +119,8 @@ public class main_test {
 		}
 		getSymbolString = getSymbolString.substring(0, getSymbolString.length()-1);
 		yahooParser.loadContent(getSymbolString, w,exchangeTwo);
-		
-		
+
+
 		try {
 			w.close();
 		} catch (IOException e) {
@@ -100,7 +134,7 @@ public class main_test {
 		//parseTrailingTwelve("income.csv", "income_ttm.csv");
 		//parseTrailingTwelve("cash.csv", "cash_ttm.csv");
 	}
-	
+
 	public static void combineData(String fileNameOne,String fileNameTwo,String fileNameThree,String outputName){
 		CSVReader readerOne;
 		CSVReader readerTwo;
@@ -165,7 +199,7 @@ public class main_test {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void combineIndustryData(String fileNameOne,String fileNameTwo,String outputName){
 		CSVReader readerOne;
 		CSVReader readerTwo;
@@ -217,7 +251,7 @@ public class main_test {
 						nextTickerFlag = false;
 					}
 				}
-				
+
 				//Quarterly Only and if moving onto nextTickerFlag
 				if (!nextLine[3].contains("0") && !nextTickerFlag){
 					next = nextLine;
@@ -249,7 +283,7 @@ public class main_test {
 						e.printStackTrace();
 					}
 
-					 if (trailing != null) {
+					if (trailing != null) {
 						if (next[5].contains("week")){
 							next[6] = Float.parseFloat(next[6])*7 + "";
 							next[5] = "days";
@@ -267,7 +301,7 @@ public class main_test {
 						float periodInDays = timeBetweenTwoDates(currentEndDate, currentStartDate);
 						if (currentStartDate.before(nextEndDate)){
 							if (nextStartDate.before(currentStartDate)){
-								
+
 								trailing = subtractData(trailing,
 										multiplyConstant(trailing, timeBetweenTwoDates(nextEndDate,currentStartDate)/periodInDays));
 								trailing = addData(trailing,next);
@@ -297,7 +331,7 @@ public class main_test {
 							writer.writeNext(trailing);
 							nextTickerFlag = true;
 						}
-						
+
 					}
 				}
 			}
@@ -316,7 +350,7 @@ public class main_test {
 			if (first[i].contains(" ") || first[i].isEmpty())
 				break;
 			result[i] = Float.parseFloat(first[i])*constant + "";
-			
+
 		}
 		return result;
 	}
@@ -346,12 +380,12 @@ public class main_test {
 	public static Calendar getStartDate(Calendar endDate, String [] lineString){
 		long currentQuarterCount =  Math.round(Float.parseFloat(lineString[6]));
 		//String currentQuarterRange = lineString[5];
-		
+
 		Calendar currentStartDate = (Calendar) endDate.clone();
 		currentStartDate.setTimeInMillis((long) (endDate.getTimeInMillis() - currentQuarterCount * 86400000));   
 		System.out.print("period day : " + lineString[6] + "\n");
 		System.out.print(endDate.get(Calendar.YEAR) + "/" + endDate.get(Calendar.MONTH) + "/" +
-		endDate.get(Calendar.DAY_OF_MONTH)  + "\n");
+				endDate.get(Calendar.DAY_OF_MONTH)  + "\n");
 		System.out.print(currentStartDate.get(Calendar.YEAR) + "/" + currentStartDate.get(Calendar.MONTH) + "/" +
 				currentStartDate.get(Calendar.DAY_OF_MONTH)  + "\n\n\n");
 		return currentStartDate;
@@ -369,9 +403,9 @@ public class main_test {
 
 		return Math.round(week);
 	}
-	
+
 	public static float timeBetweenTwoDates(Calendar calendar1, Calendar calendar2){
-	    return (calendar1.getTimeInMillis() - calendar2.getTimeInMillis())/(24 * 60 * 60 * 1000);
+		return (calendar1.getTimeInMillis() - calendar2.getTimeInMillis())/(24 * 60 * 60 * 1000);
 	}
 
 	//Aggregate all data
@@ -380,8 +414,8 @@ public class main_test {
 
 		companyList = CompanyClass.parseSymbols("industry.csv");
 		webParser = new WebParser();
-		
-		
+
+
 		int counter = 0;
 		for (String cClass:companyList){
 			if (counter == 499){
@@ -408,6 +442,8 @@ public class main_test {
 		}		
 		return newString;
 	}
+
+
 
 
 	public static void writeCSV(){
