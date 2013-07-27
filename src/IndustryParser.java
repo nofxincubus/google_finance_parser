@@ -13,12 +13,14 @@ import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
+import au.com.bytecode.opencsv.CSVWriter;
+
 class IndustryParser {
 	
 	public ArrayList <String> industryData = new ArrayList<String>();
 
 
-	public void loadContent(String symbol)
+	public void loadContent(String symbol, CSVWriter writer)
 	{
 		String name = symbol.substring(0, symbol.indexOf("_"));
 		String exchange = symbol.substring(symbol.indexOf("_")+1,symbol.length());
@@ -50,11 +52,22 @@ class IndustryParser {
 					new InputStreamReader(
 							webCon.getInputStream()));
 				String getLine = in.readLine();
-				while (!getLine.contains("Industry:"))
-					getLine = in.readLine();
+				try {
+					while (!getLine.contains("Industry: <a"))
+						getLine = in.readLine();
+				} catch (NullPointerException e) {
+					return;
+				}
+				System.out.println(getLine);
 				getLine = getLine.substring(getLine.indexOf("Industry"),getLine.length());
+				System.out.println(getLine);
 				getLine = getLine.substring(getLine.indexOf(">") + 1,getLine.indexOf("</"));
+				System.out.println(getLine);
 				industryData.add(getLine);
+				String[] writeLine = new String [2];
+				writeLine[0] = symbol;
+				writeLine[1] = getLine;
+				writer.writeNext(writeLine);
 
 		} catch (MalformedURLException e) {
 			System.out.println("Wrong Search String!");

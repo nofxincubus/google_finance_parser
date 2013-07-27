@@ -49,12 +49,11 @@ public class main_test {
 		IndustryParser indParser = new IndustryParser();
 		ArrayList<String> companyList = new ArrayList<String>();
 
-		//companyList = CompanyClass.parseSymbols("industry.csv");
-		companyList.add("aapl_nasdaq");
-		System.out.println(indParser.industryData.get(0));
-		CSVWriter incomeWriter;
+		companyList = CompanyClass.parseSymbols("industry.csv");
+		//companyList.add("aapl_nasdaq");
+		CSVWriter industryWriter = null;
 		try {
-			incomeWriter = new CSVWriter(new FileWriter("./industry_new.csv"));
+			industryWriter = new CSVWriter(new FileWriter("./industry_new.csv"));
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -70,11 +69,16 @@ public class main_test {
 				}
 				counter = 0;
 			}
-			indParser.loadContent(cClass);
+			indParser.loadContent(cClass, industryWriter);
 			counter++;
 		}
-
-
+		try {
+			industryWriter.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 
 	}
 
