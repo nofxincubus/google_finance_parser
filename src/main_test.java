@@ -7,7 +7,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
-import java.io.Writer;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -17,6 +16,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,11 +38,14 @@ public class main_test {
 	static WebParser webParser;
 
 	public static void main(String[] args) {
-		getIndustry();
-		//runAggregate();
+		//getIndustry();
+		runAggregate();
 		//yahooPrices();
-		//parseTrailingTwelve("income_7413.csv", "income_ttm_7413.csv");
-		//parseTrailingTwelve("cash_7413.csv", "cash_ttm_7413.csv");
+		Date today = new Date();
+		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMddyyyy");
+		String date = DATE_FORMAT.format(today);
+		parseTrailingTwelve("income_"+ date +".csv", "income_ttm_"+ date +".csv");
+		parseTrailingTwelve("cash_"+ date +".csv", "cash_ttm_"+ date +".csv");
 	}
 
 	public static void getIndustry(){
@@ -89,7 +92,10 @@ public class main_test {
 		int i = 0;
 		int tempCounter = 0;
 		String getSymbolString = "";
-		File statText = new File("./YahooWorks_71313.csv");
+		Date today = new Date();
+		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMddyyyy");
+		String date = DATE_FORMAT.format(today);
+		File statText = new File("./YahooWorks_" + date + ".csv");
 		FileOutputStream is = null;
 		try {
 			is = new FileOutputStream(statText);
@@ -424,7 +430,7 @@ public class main_test {
 		for (String cClass:companyList){
 			if (counter == 499){
 				try {
-					Thread.sleep(10*60000);
+					Thread.sleep(5*60000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
@@ -465,9 +471,12 @@ public class main_test {
 			balanceHeaderReader = new CSVReader(new FileReader("./BalanceSheetHeadings.csv"));
 			cashflowHeaderReader = new CSVReader(new FileReader("./CashFlowHeadings.csv"));
 			incomeHeaderReader = new CSVReader(new FileReader("./IncomeStatementHeadings.csv"));
-			incomeWriter = new CSVWriter(new FileWriter("./income_7413.csv"));
-			balanceWriter = new CSVWriter(new FileWriter("./balance_7413.csv"));
-			cashflowWriter = new CSVWriter(new FileWriter("./cash_7413.csv"));
+			SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMddyyyy");
+			Date today = new Date();
+			String date = DATE_FORMAT.format(today);
+			incomeWriter = new CSVWriter(new FileWriter("./income_" + date + ".csv"));
+			balanceWriter = new CSVWriter(new FileWriter("./balance_" + date + ".csv"));
+			cashflowWriter = new CSVWriter(new FileWriter("./cash_" + date + ".csv"));
 			String[] incomeHeaderSans = incomeHeaderReader.readNext();
 			String[] balanceHeaderSans = balanceHeaderReader.readNext();
 			String[] cashflowHeaderSans = cashflowHeaderReader.readNext();
