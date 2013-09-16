@@ -44,15 +44,15 @@ public class main_test {
 		Date today = new Date();
 		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMddyyyy");
 		String date = DATE_FORMAT.format(today);
-		parseTrailingTwelve("income_"+ date +".csv", "income_ttm_"+ date +".csv");
-		parseTrailingTwelve("cash_"+ date +".csv", "cash_ttm_"+ date +".csv");
+		parseTrailingTwelve("partial_income_"+ date +".csv", "income_ttm_"+ date +".csv");
+		parseTrailingTwelve("partial_cash_"+ date +".csv", "cash_ttm_"+ date +".csv");
 	}
 
 	public static void getIndustry(){
 		IndustryParser indParser = new IndustryParser();
 		ArrayList<String> companyList = new ArrayList<String>();
 
-		companyList = CompanyClass.parseSymbols("industry.csv");
+		companyList = CompanyClass.parseSymbols("industry_partial.csv");
 		//companyList.add("aapl_nasdaq");
 		CSVWriter industryWriter = null;
 		try {
@@ -422,7 +422,7 @@ public class main_test {
 	public static void runAggregate(){
 		ArrayList<String> companyList = new ArrayList<String>();
 
-		companyList = CompanyClass.parseSymbols("industry.csv");
+		companyList = CompanyClass.parseSymbols("industry_partial.csv");
 		webParser = new WebParser();
 
 
