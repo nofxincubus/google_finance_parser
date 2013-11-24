@@ -38,14 +38,31 @@ public class main_test {
 	static WebParser webParser;
 
 	public static void main(String[] args) {
+		yahooPrices();
+		
+		
 		//getIndustry();
+		/*
 		runAggregate();
-		//yahooPrices();
-		Date today = new Date();
-		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMddyyyy");
-		String date = DATE_FORMAT.format(today);
-		parseTrailingTwelve("partial_income_"+ date +".csv", "income_ttm_"+ date +".csv");
-		parseTrailingTwelve("partial_cash_"+ date +".csv", "cash_ttm_"+ date +".csv");
+		parseTrailingTwelve("income.csv", "income_ttm.csv");
+		parseTrailingTwelve("cash.csv", "cash_ttm.csv");
+		*/
+		
+		/*
+		String []yay = {"one", "two", "three", "four"};
+		CSVWriter writer;
+		try {
+			writer = new CSVWriter(new FileWriter("./YAYAYAYAYA.csv"));
+			writer.writeNext(yay);
+			writer.writeNext(yay);
+			writer.writeNext(yay);
+			writer.writeNext(yay);
+			writer.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
 	}
 
 	public static void getIndustry(){
@@ -95,7 +112,7 @@ public class main_test {
 		Date today = new Date();
 		SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMddyyyy");
 		String date = DATE_FORMAT.format(today);
-		File statText = new File("./YahooWorks_" + date + ".csv");
+		File statText = new File("./YahooWorks.csv");
 		FileOutputStream is = null;
 		try {
 			is = new FileOutputStream(statText);
@@ -103,9 +120,18 @@ public class main_test {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
 		OutputStreamWriter osw = new OutputStreamWriter(is);    
 		BufferedWriter w = new BufferedWriter(osw);
 		ArrayList<String> exchangeTwo = new ArrayList<String>();
+		try {
+			w.write("FloatShares,Ticker,Price,52 week high,52 week low,avg Daily Volume,50 day Moving Average,200 day moving average,price/eps estimate this year,price/eps estimate next year,Short Ratio");
+			w.newLine();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
 		while (i < symbols.size()){
 			if (tempCounter < 200){
 				getSymbolString = getSymbolString + symbols.get(i) + "+";
@@ -338,7 +364,7 @@ public class main_test {
 							float diffPeriodInDays = timeBetweenTwoDates(trailingEndDate, nextStartDate);
 							float nextPeriodInDays = timeBetweenTwoDates(nextEndDate, nextStartDate);
 							trailing = subtractData(trailing,multiplyConstant(next,diffPeriodInDays/nextPeriodInDays));
-							writer.writeNext(trailing);
+							writer.writeNextNoQuotes(trailing);
 							nextTickerFlag = true;
 						}
 
@@ -422,21 +448,32 @@ public class main_test {
 	public static void runAggregate(){
 		ArrayList<String> companyList = new ArrayList<String>();
 
-		companyList = CompanyClass.parseSymbols("industry_partial.csv");
+		companyList = CompanyClass.parseSymbols("industry.csv");
+		//companyList.clear();
+		//companyList.add("INTC_nasdaq");
 		webParser = new WebParser();
 
 
 		int counter = 0;
 		for (String cClass:companyList){
 			if (counter == 499){
+				
+				/*
 				try {
-					Thread.sleep(5*60000);
+					Thread.sleep(10*60000);
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				*/
+				
 				counter = 0;
 			}
 			webParser.loadContent(cClass);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			counter++;
 		}
 
@@ -474,18 +511,18 @@ public class main_test {
 			SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("MMddyyyy");
 			Date today = new Date();
 			String date = DATE_FORMAT.format(today);
-			incomeWriter = new CSVWriter(new FileWriter("./income_" + date + ".csv"));
-			balanceWriter = new CSVWriter(new FileWriter("./balance_" + date + ".csv"));
-			cashflowWriter = new CSVWriter(new FileWriter("./cash_" + date + ".csv"));
+			incomeWriter = new CSVWriter(new FileWriter("./income.csv"));
+			balanceWriter = new CSVWriter(new FileWriter("./balance.csv"));
+			cashflowWriter = new CSVWriter(new FileWriter("./cash.csv"));
 			String[] incomeHeaderSans = incomeHeaderReader.readNext();
 			String[] balanceHeaderSans = balanceHeaderReader.readNext();
 			String[] cashflowHeaderSans = cashflowHeaderReader.readNext();
 			incomeHeaderReader.close();
 			balanceHeaderReader.close();
 			cashflowHeaderReader.close();
-			String[] header = new String [incomeHeaderSans.length + 10];
-			String[] header1 = new String [balanceHeaderSans.length + 10];
-			String[] header2 = new String [cashflowHeaderSans.length + 10];
+			String[] header = new String [incomeHeaderSans.length + 9];
+			String[] header1 = new String [balanceHeaderSans.length + 9];
+			String[] header2 = new String [cashflowHeaderSans.length + 9];
 			header[0] = header1[0] = header2[0] = "index";
 			header[1] = header1[1] = header2[1] = "ticker";
 			header[2] = header1[2] = header2[2] = "year";
@@ -514,7 +551,7 @@ public class main_test {
 			balanceWriter.writeNext(header1);
 			cashflowWriter.writeNext(header2);
 			for (FinancialClass fClass:webParser.companyData){
-				String[] data = new String [fClass.financialData.size() + 10];
+				String[] data = new String [fClass.financialData.size() + 9];
 				data[1] = fClass.ticker;
 				data[2] = fClass.year + "";
 				data[3] = fClass.quarter + "";
@@ -531,15 +568,15 @@ public class main_test {
 				if (fClass.eDataType == FinancialClass.DataType.eFinancial){
 					data[0] = countFinancial + "";
 					countFinancial++;
-					incomeWriter.writeNext(data);
+					incomeWriter.writeNextNoQuotes(data);
 				} else if (fClass.eDataType == FinancialClass.DataType.eBalanceSheet){
 					data[0] = countBalance + "";
 					countBalance++;
-					balanceWriter.writeNext(data);
+					balanceWriter.writeNextNoQuotes(data);
 				} else if (fClass.eDataType == FinancialClass.DataType.eCashFlow){
 					data[0] = countCashflow + "";
 					countCashflow++;
-					cashflowWriter.writeNext(data);
+					cashflowWriter.writeNextNoQuotes(data);
 				}
 
 			}

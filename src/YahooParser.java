@@ -51,9 +51,11 @@ class YahooParser {
 				
 				fshare = fshare.replace(",","");
 				String finalString = fshare + "," + ticker +  rest;
+				finalString = finalString.replace("N/A", "");
 				w.write(finalString);
 				w.newLine();
 				getLine = in.readLine();
+				i++;
 			}
 			
 			

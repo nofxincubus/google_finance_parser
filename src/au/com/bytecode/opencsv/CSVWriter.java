@@ -243,6 +243,35 @@ public class CSVWriter implements Closeable {
         pw.write(sb.toString());
 
     }
+    
+ public void writeNextNoQuotes(String[] nextLine) {
+    	
+    	if (nextLine == null)
+    		return;
+    	
+        StringBuilder sb = new StringBuilder(INITIAL_STRING_SIZE);
+        for (int i = 0; i < nextLine.length; i++) {
+
+            if (i != 0) {
+                sb.append(separator);
+            }
+
+            String nextElement = nextLine[i];
+            if (nextElement == null)
+                continue;
+            //if (quotechar !=  NO_QUOTE_CHARACTER)
+            //	sb.append(quotechar);
+            
+            sb.append(stringContainsSpecialCharacters(nextElement) ? processLine(nextElement) : nextElement);
+
+            //if (quotechar != NO_QUOTE_CHARACTER)
+            //	sb.append(quotechar);
+        }
+        
+        sb.append(lineEnd);
+        pw.write(sb.toString());
+
+    }
 
 	private boolean stringContainsSpecialCharacters(String line) {
 	    return line.indexOf(quotechar) != -1 || line.indexOf(escapechar) != -1;

@@ -1,0 +1,1920 @@
+In Millions of USD (except for per share items)
+</th>
+<th class="rgt">
+3 months ending 2013-09-30
+</th>
+<th class="rgt">
+3 months ending 2013-06-30
+</th>
+<th class="rgt">
+3 months ending 2013-03-31
+</th>
+<th class="rgt">
+3 months ending 2012-12-31
+</th>
+<th class="rgt rm">
+3 months ending 2012-09-30
+</th>
+</tr></thead>
+<tbody>
+<!-- 1 row for one coaitem -->
+<tr>
+<td class="lft lm">Revenue
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Revenue, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Revenue
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Cost of Revenue, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Gross Profit
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Selling/General/Admin. Expenses, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Research &amp; Development
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Depreciation/Amortization
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Interest Expense(Income) - Net Operating
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Unusual Expense (Income)
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Operating Expenses, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Operating Expense
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Operating Income
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Interest Income(Expense), Net Non-Operating
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Gain (Loss) on Sale of Assets
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Income Before Tax
+</td>
+<td class="r bld">2.13</td>
+<td class="r bld">2.17</td>
+<td class="r bld">1.85</td>
+<td class="r bld">1.68</td>
+<td class="r bld rm">1.88</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Income After Tax
+</td>
+<td class="r bld">1.52</td>
+<td class="r bld">1.56</td>
+<td class="r bld">1.33</td>
+<td class="r bld">1.24</td>
+<td class="r bld rm">1.35</td>
+</tr>
+<tr>
+<td class="lft lm">Minority Interest
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Equity In Affiliates
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Net Income Before Extra. Items
+</td>
+<td class="r bld">1.52</td>
+<td class="r bld">1.56</td>
+<td class="r bld">1.33</td>
+<td class="r bld">1.24</td>
+<td class="r bld rm">1.35</td>
+</tr>
+<tr>
+<td class="lft lm">Accounting Change
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Discontinued Operations
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Extraordinary Item
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Net Income
+</td>
+<td class="r bld">1.52</td>
+<td class="r bld">1.56</td>
+<td class="r bld">1.33</td>
+<td class="r bld">1.24</td>
+<td class="r bld rm">1.35</td>
+</tr>
+<tr>
+<td class="lft lm">Preferred Dividends
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Income Available to Common Excl. Extra Items
+</td>
+<td class="r bld">1.52</td>
+<td class="r bld">1.56</td>
+<td class="r bld">1.33</td>
+<td class="r bld">1.24</td>
+<td class="r bld rm">1.35</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Income Available to Common Incl. Extra Items
+</td>
+<td class="r bld">1.52</td>
+<td class="r bld">1.56</td>
+<td class="r bld">1.33</td>
+<td class="r bld">1.24</td>
+<td class="r bld rm">1.35</td>
+</tr>
+<tr>
+<td class="lft lm">Basic Weighted Average Shares
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm bld">Basic EPS Excluding Extraordinary Items
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Basic EPS Including Extraordinary Items
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Dilution Adjustment
+</td>
+<td class="r">-</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r rm">0.00</td>
+</tr>
+<tr>
+<td class="lft lm">Diluted Weighted Average Shares
+</td>
+<td class="r">6.15</td>
+<td class="r">6.14</td>
+<td class="r">6.03</td>
+<td class="r">6.07</td>
+<td class="r rm">5.51</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm">Diluted EPS Excluding Extraordinary Items
+</td>
+<td class="r">0.25</td>
+<td class="r">0.25</td>
+<td class="r">0.22</td>
+<td class="r">0.20</td>
+<td class="r rm">0.25</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Diluted EPS Including Extraordinary Items
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Dividends per Share - Common Stock Primary Issue
+</td>
+<td class="r">-</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r rm">0.00</td>
+</tr>
+<tr>
+<td class="lft lm">Gross Dividends - Common Stock
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Net Income after Stock Based Comp. Expense
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Basic EPS after Stock Based Comp. Expense
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Diluted EPS after Stock Based Comp. Expense
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Depreciation, Supplemental
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Total Special Items
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm bld">Normalized Income Before Taxes
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Effect of Special Items on Income Taxes
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Income Taxes Ex. Impact of Special Items
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm bld">Normalized Income After Taxes
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm bld">Normalized Income Avail to Common
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Basic Normalized EPS
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Diluted Normalized EPS
+</td>
+<td class="r">0.25</td>
+<td class="r">0.25</td>
+<td class="r">0.22</td>
+<td class="r">0.20</td>
+<td class="r rm">0.25</td>
+</tr>
+</tbody>
+In Millions of USD (except for per share items)
+</th>
+<th class="rgt">
+12 months ending 2012-12-31
+</th>
+<th class="rgt">
+12 months ending 2011-12-31
+</th>
+<th class="rgt">
+12 months ending 2010-12-31
+</th>
+<th class="rgt rm">
+12 months ending 2009-12-31
+</th>
+</tr></thead>
+<tbody>
+<!-- 1 row for one coaitem -->
+<tr>
+<td class="lft lm">Revenue
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Revenue, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Revenue
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Cost of Revenue, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Gross Profit
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Selling/General/Admin. Expenses, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Research &amp; Development
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Depreciation/Amortization
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Interest Expense(Income) - Net Operating
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Unusual Expense (Income)
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Operating Expenses, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Operating Expense
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Operating Income
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Interest Income(Expense), Net Non-Operating
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Gain (Loss) on Sale of Assets
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Income Before Tax
+</td>
+<td class="r bld">7.03</td>
+<td class="r bld">5.22</td>
+<td class="r bld">4.57</td>
+<td class="r bld rm">2.72</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Income After Tax
+</td>
+<td class="r bld">5.06</td>
+<td class="r bld">3.93</td>
+<td class="r bld">3.31</td>
+<td class="r bld rm">2.56</td>
+</tr>
+<tr>
+<td class="lft lm">Minority Interest
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Equity In Affiliates
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Net Income Before Extra. Items
+</td>
+<td class="r bld">5.06</td>
+<td class="r bld">3.93</td>
+<td class="r bld">3.31</td>
+<td class="r bld rm">2.56</td>
+</tr>
+<tr>
+<td class="lft lm">Accounting Change
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Discontinued Operations
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Extraordinary Item
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Net Income
+</td>
+<td class="r bld">5.06</td>
+<td class="r bld">3.93</td>
+<td class="r bld">3.31</td>
+<td class="r bld rm">2.56</td>
+</tr>
+<tr>
+<td class="lft lm">Preferred Dividends
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Income Available to Common Excl. Extra Items
+</td>
+<td class="r bld">5.06</td>
+<td class="r bld">3.93</td>
+<td class="r bld">2.29</td>
+<td class="r bld rm">1.84</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Income Available to Common Incl. Extra Items
+</td>
+<td class="r bld">5.06</td>
+<td class="r bld">3.93</td>
+<td class="r bld">2.29</td>
+<td class="r bld rm">1.84</td>
+</tr>
+<tr>
+<td class="lft lm">Basic Weighted Average Shares
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm bld">Basic EPS Excluding Extraordinary Items
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Basic EPS Including Extraordinary Items
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Dilution Adjustment
+</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r rm">0.00</td>
+</tr>
+<tr>
+<td class="lft lm">Diluted Weighted Average Shares
+</td>
+<td class="r">5.61</td>
+<td class="r">5.34</td>
+<td class="r">5.30</td>
+<td class="r rm">5.19</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm">Diluted EPS Excluding Extraordinary Items
+</td>
+<td class="r">0.90</td>
+<td class="r">0.74</td>
+<td class="r">0.43</td>
+<td class="r rm">0.35</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Diluted EPS Including Extraordinary Items
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Dividends per Share - Common Stock Primary Issue
+</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r rm">0.00</td>
+</tr>
+<tr>
+<td class="lft lm">Gross Dividends - Common Stock
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Net Income after Stock Based Comp. Expense
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Basic EPS after Stock Based Comp. Expense
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Diluted EPS after Stock Based Comp. Expense
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Depreciation, Supplemental
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Total Special Items
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm bld">Normalized Income Before Taxes
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Effect of Special Items on Income Taxes
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Income Taxes Ex. Impact of Special Items
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm bld">Normalized Income After Taxes
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm bld">Normalized Income Avail to Common
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Basic Normalized EPS
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Diluted Normalized EPS
+</td>
+<td class="r">0.90</td>
+<td class="r">0.74</td>
+<td class="r">0.43</td>
+<td class="r rm">0.42</td>
+</tr>
+</tbody>
+In Millions of USD (except for per share items)
+</th>
+<th class="rgt">
+As of 2013-06-30
+</th>
+<th class="rgt">
+As of 2013-03-31
+</th>
+<th class="rgt">
+As of 2012-12-31
+</th>
+<th class="rgt rm">
+As of 2012-09-30
+</th>
+</tr></thead>
+<tbody>
+<!-- 1 row for one coaitem -->
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Cash &amp; Equivalents
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Short Term Investments
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Cash and Short Term Investments
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Accounts Receivable - Trade, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Receivables - Other
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Total Receivables, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Total Inventory
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Prepaid Expenses
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Current Assets, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Current Assets
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Property/Plant/Equipment, Total - Gross
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Accumulated Depreciation, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Goodwill, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Intangibles, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Long Term Investments
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Long Term Assets, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Assets
+</td>
+<td class="r bld">804.89</td>
+<td class="r bld">812.57</td>
+<td class="r bld">840.97</td>
+<td class="r bld rm">796.16</td>
+</tr>
+<tr>
+<td class="lft lm">Accounts Payable
+</td>
+<td class="r">0.94</td>
+<td class="r">1.01</td>
+<td class="r">1.06</td>
+<td class="r rm">0.92</td>
+</tr>
+<tr>
+<td class="lft lm">Accrued Expenses
+</td>
+<td class="r">6.52</td>
+<td class="r">5.96</td>
+<td class="r">6.21</td>
+<td class="r rm">4.79</td>
+</tr>
+<tr>
+<td class="lft lm">Notes Payable/Short Term Debt
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Current Port. of LT Debt/Capital Leases
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Current liabilities, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Current Liabilities
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Long Term Debt
+</td>
+<td class="r">18.56</td>
+<td class="r">18.56</td>
+<td class="r">18.56</td>
+<td class="r rm">18.56</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Capital Lease Obligations
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Long Term Debt
+</td>
+<td class="r bld">18.56</td>
+<td class="r bld">18.56</td>
+<td class="r bld">18.56</td>
+<td class="r bld rm">18.56</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Debt
+</td>
+<td class="r bld">18.56</td>
+<td class="r bld">18.56</td>
+<td class="r bld">18.56</td>
+<td class="r bld rm">18.56</td>
+</tr>
+<tr>
+<td class="lft lm">Deferred Income Tax
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Minority Interest
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Liabilities, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Liabilities
+</td>
+<td class="r bld">739.62</td>
+<td class="r bld">746.45</td>
+<td class="r bld">775.91</td>
+<td class="r bld rm">736.41</td>
+</tr>
+<tr>
+<td class="lft lm">Redeemable Preferred Stock, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Preferred Stock - Non Redeemable, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">0.00</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Common Stock, Total
+</td>
+<td class="r">48.99</td>
+<td class="r">48.93</td>
+<td class="r">48.72</td>
+<td class="r rm">41.36</td>
+</tr>
+<tr>
+<td class="lft lm">Additional Paid-In Capital
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Retained Earnings (Accumulated Deficit)
+</td>
+<td class="r">18.48</td>
+<td class="r">16.92</td>
+<td class="r">15.59</td>
+<td class="r rm">16.89</td>
+</tr>
+<tr>
+<td class="lft lm">Treasury Stock - Common
+</td>
+<td class="r"><span class=chr>-0.12</span></td>
+<td class="r"><span class=chr>-0.11</span></td>
+<td class="r"><span class=chr>-0.06</span></td>
+<td class="r rm"><span class=chr>-0.08</span></td>
+</tr>
+<tr>
+<td class="lft lm">Other Equity, Total
+</td>
+<td class="r"><span class=chr>-0.06</span></td>
+<td class="r"><span class=chr>-0.10</span></td>
+<td class="r"><span class=chr>-0.10</span></td>
+<td class="r rm"><span class=chr>-0.10</span></td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Equity
+</td>
+<td class="r bld">65.28</td>
+<td class="r bld">66.11</td>
+<td class="r bld">65.05</td>
+<td class="r bld rm">59.74</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Liabilities &amp; Shareholders&#39; Equity
+</td>
+<td class="r bld">804.89</td>
+<td class="r bld">812.57</td>
+<td class="r bld">840.97</td>
+<td class="r bld rm">796.16</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Shares Outs - Common Stock Primary Issue
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Common Shares Outstanding
+</td>
+<td class="r bld">5.99</td>
+<td class="r bld">5.99</td>
+<td class="r bld">5.98</td>
+<td class="r bld rm">5.39</td>
+</tr>
+</tbody>
+In Millions of USD (except for per share items)
+</th>
+<th class="rgt">
+As of 2012-12-31
+</th>
+<th class="rgt">
+As of 2011-12-31
+</th>
+<th class="rgt">
+As of 2010-12-31
+</th>
+<th class="rgt rm">
+As of 2009-12-31
+</th>
+</tr></thead>
+<tbody>
+<!-- 1 row for one coaitem -->
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Cash &amp; Equivalents
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Short Term Investments
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Cash and Short Term Investments
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Accounts Receivable - Trade, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Receivables - Other
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Total Receivables, Net
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Total Inventory
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Prepaid Expenses
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Current Assets, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Current Assets
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Property/Plant/Equipment, Total - Gross
+</td>
+<td class="r">16.83</td>
+<td class="r">15.82</td>
+<td class="r">10.67</td>
+<td class="r rm">9.10</td>
+</tr>
+<tr>
+<td class="lft lm">Accumulated Depreciation, Total
+</td>
+<td class="r"><span class=chr>-6.20</span></td>
+<td class="r"><span class=chr>-5.38</span></td>
+<td class="r"><span class=chr>-4.52</span></td>
+<td class="r rm"><span class=chr>-4.20</span></td>
+</tr>
+<tr>
+<td class="lft lm">Goodwill, Net
+</td>
+<td class="r">3.76</td>
+<td class="r">3.76</td>
+<td class="r">0.47</td>
+<td class="r rm">0.47</td>
+</tr>
+<tr>
+<td class="lft lm">Intangibles, Net
+</td>
+<td class="r">1.39</td>
+<td class="r">1.66</td>
+<td class="r">0.14</td>
+<td class="r rm">0.17</td>
+</tr>
+<tr>
+<td class="lft lm">Long Term Investments
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Long Term Assets, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Assets
+</td>
+<td class="r bld">840.97</td>
+<td class="r bld">791.73</td>
+<td class="r bld">644.40</td>
+<td class="r bld rm">678.00</td>
+</tr>
+<tr>
+<td class="lft lm">Accounts Payable
+</td>
+<td class="r">1.06</td>
+<td class="r">1.19</td>
+<td class="r">1.43</td>
+<td class="r rm">1.76</td>
+</tr>
+<tr>
+<td class="lft lm">Accrued Expenses
+</td>
+<td class="r">6.21</td>
+<td class="r">4.82</td>
+<td class="r">5.09</td>
+<td class="r rm">5.63</td>
+</tr>
+<tr>
+<td class="lft lm">Notes Payable/Short Term Debt
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Current Port. of LT Debt/Capital Leases
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Current liabilities, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Current Liabilities
+</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld">-</td>
+<td class="r bld rm">-</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Long Term Debt
+</td>
+<td class="r">18.56</td>
+<td class="r">18.56</td>
+<td class="r">18.56</td>
+<td class="r rm">18.56</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Capital Lease Obligations
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Long Term Debt
+</td>
+<td class="r bld">18.56</td>
+<td class="r bld">18.56</td>
+<td class="r bld">18.56</td>
+<td class="r bld rm">18.56</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Debt
+</td>
+<td class="r bld">18.56</td>
+<td class="r bld">18.56</td>
+<td class="r bld">18.56</td>
+<td class="r bld rm">18.56</td>
+</tr>
+<tr>
+<td class="lft lm">Deferred Income Tax
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Minority Interest
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Other Liabilities, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Liabilities
+</td>
+<td class="r bld">775.91</td>
+<td class="r bld">736.73</td>
+<td class="r bld">594.71</td>
+<td class="r bld rm">620.60</td>
+</tr>
+<tr>
+<td class="lft lm">Redeemable Preferred Stock, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Preferred Stock - Non Redeemable, Net
+</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r">0.00</td>
+<td class="r rm">11.47</td>
+</tr>
+<tr>
+<td class="lft lm">Common Stock, Total
+</td>
+<td class="r">48.72</td>
+<td class="r">40.85</td>
+<td class="r">38.90</td>
+<td class="r rm">36.77</td>
+</tr>
+<tr>
+<td class="lft lm">Additional Paid-In Capital
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Retained Earnings (Accumulated Deficit)
+</td>
+<td class="r">15.59</td>
+<td class="r">13.07</td>
+<td class="r">10.74</td>
+<td class="r rm">10.31</td>
+</tr>
+<tr>
+<td class="lft lm">Treasury Stock - Common
+</td>
+<td class="r"><span class=chr>-0.06</span></td>
+<td class="r"><span class=chr>-0.01</span></td>
+<td class="r"><span class=chr>-0.06</span></td>
+<td class="r rm"><span class=chr>-0.07</span></td>
+</tr>
+<tr>
+<td class="lft lm">Other Equity, Total
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Equity
+</td>
+<td class="r bld">65.05</td>
+<td class="r bld">55.00</td>
+<td class="r bld">49.68</td>
+<td class="r bld rm">57.40</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Liabilities &amp; Shareholders&#39; Equity
+</td>
+<td class="r bld">840.97</td>
+<td class="r bld">791.73</td>
+<td class="r bld">644.40</td>
+<td class="r bld rm">678.00</td>
+</tr>
+<tr>
+<td class="lft lm"><span style="padding-left:18px;"></span>Shares Outs - Common Stock Primary Issue
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Total Common Shares Outstanding
+</td>
+<td class="r bld">5.98</td>
+<td class="r bld">5.35</td>
+<td class="r bld">5.04</td>
+<td class="r bld rm">5.23</td>
+</tr>
+</tbody>
+In Millions of USD (except for per share items)
+</th>
+<th class="rgt">
+6 months ending 2013-06-30
+</th>
+<th class="rgt">
+3 months ending 2013-03-31
+</th>
+<th class="rgt">
+12 months ending 2012-12-31
+</th>
+<th class="rgt rm">
+9 months ending 2012-09-30
+</th>
+</tr></thead>
+<tbody>
+<!-- 1 row for one coaitem -->
+<tr>
+<td class="lft lm">Net Income/Starting Line
+</td>
+<td class="r">2.88</td>
+<td class="r">1.33</td>
+<td class="r">5.06</td>
+<td class="r rm">3.82</td>
+</tr>
+<tr>
+<td class="lft lm">Depreciation/Depletion
+</td>
+<td class="r">0.54</td>
+<td class="r">0.27</td>
+<td class="r">1.17</td>
+<td class="r rm">0.88</td>
+</tr>
+<tr>
+<td class="lft lm">Amortization
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Deferred Taxes
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r"><span class=chr>-1.79</span></td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Non-Cash Items
+</td>
+<td class="r">0.65</td>
+<td class="r">0.37</td>
+<td class="r">1.50</td>
+<td class="r rm">1.11</td>
+</tr>
+<tr>
+<td class="lft lm">Changes in Working Capital
+</td>
+<td class="r">10.11</td>
+<td class="r">6.29</td>
+<td class="r"><span class=chr>-11.52</span></td>
+<td class="r rm"><span class=chr>-0.51</span></td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Cash from Operating Activities
+</td>
+<td class="r bld">14.18</td>
+<td class="r bld">8.25</td>
+<td class="r bld"><span class=chr>-5.59</span></td>
+<td class="r bld rm">5.31</td>
+</tr>
+<tr>
+<td class="lft lm">Capital Expenditures
+</td>
+<td class="r"><span class=chr>-0.11</span></td>
+<td class="r"><span class=chr>-0.07</span></td>
+<td class="r"><span class=chr>-1.10</span></td>
+<td class="r rm"><span class=chr>-0.82</span></td>
+</tr>
+<tr>
+<td class="lft lm">Other Investing Cash Flow Items, Total
+</td>
+<td class="r">118.32</td>
+<td class="r">108.23</td>
+<td class="r"><span class=chr>-37.57</span></td>
+<td class="r rm"><span class=chr>-6.05</span></td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Cash from Investing Activities
+</td>
+<td class="r bld">118.21</td>
+<td class="r bld">108.16</td>
+<td class="r bld"><span class=chr>-38.67</span></td>
+<td class="r bld rm"><span class=chr>-6.86</span></td>
+</tr>
+<tr>
+<td class="lft lm">Financing Cash Flow Items
+</td>
+<td class="r"><span class=chr>-4.09</span></td>
+<td class="r">3.24</td>
+<td class="r">83.83</td>
+<td class="r rm">37.14</td>
+</tr>
+<tr>
+<td class="lft lm">Total Cash Dividends Paid
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Issuance (Retirement) of Stock, Net
+</td>
+<td class="r">0.16</td>
+<td class="r">0.14</td>
+<td class="r">5.18</td>
+<td class="r rm">0.38</td>
+</tr>
+<tr>
+<td class="lft lm">Issuance (Retirement) of Debt, Net
+</td>
+<td class="r"><span class=chr>-32.40</span></td>
+<td class="r"><span class=chr>-32.40</span></td>
+<td class="r"><span class=chr>-45.90</span></td>
+<td class="r rm"><span class=chr>-37.15</span></td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Cash from Financing Activities
+</td>
+<td class="r bld"><span class=chr>-36.33</span></td>
+<td class="r bld"><span class=chr>-29.02</span></td>
+<td class="r bld">43.11</td>
+<td class="r bld rm">0.36</td>
+</tr>
+<tr>
+<td class="lft lm">Foreign Exchange Effects
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Net Change in Cash
+</td>
+<td class="r bld">96.06</td>
+<td class="r bld">87.39</td>
+<td class="r bld"><span class=chr>-1.15</span></td>
+<td class="r bld rm"><span class=chr>-1.20</span></td>
+</tr>
+<tr>
+<td class="lft lm">Cash Interest Paid, Supplemental
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Cash Taxes Paid, Supplemental
+</td>
+<td class="r">1.15</td>
+<td class="r">0.75</td>
+<td class="r">3.18</td>
+<td class="r rm">1.79</td>
+</tr>
+</tbody>
+In Millions of USD (except for per share items)
+</th>
+<th class="rgt">
+12 months ending 2012-12-31
+</th>
+<th class="rgt">
+12 months ending 2011-12-31
+</th>
+<th class="rgt">
+12 months ending 2010-12-31
+</th>
+<th class="rgt rm">
+12 months ending 2009-12-31
+</th>
+</tr></thead>
+<tbody>
+<!-- 1 row for one coaitem -->
+<tr>
+<td class="lft lm">Net Income/Starting Line
+</td>
+<td class="r">5.06</td>
+<td class="r">3.93</td>
+<td class="r">3.31</td>
+<td class="r rm">2.56</td>
+</tr>
+<tr>
+<td class="lft lm">Depreciation/Depletion
+</td>
+<td class="r">1.17</td>
+<td class="r">1.06</td>
+<td class="r">0.65</td>
+<td class="r rm">0.63</td>
+</tr>
+<tr>
+<td class="lft lm">Amortization
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Deferred Taxes
+</td>
+<td class="r"><span class=chr>-1.79</span></td>
+<td class="r"><span class=chr>-0.22</span></td>
+<td class="r"><span class=chr>-0.97</span></td>
+<td class="r rm"><span class=chr>-1.30</span></td>
+</tr>
+<tr>
+<td class="lft lm">Non-Cash Items
+</td>
+<td class="r">1.50</td>
+<td class="r">1.64</td>
+<td class="r">0.96</td>
+<td class="r rm">0.28</td>
+</tr>
+<tr>
+<td class="lft lm">Changes in Working Capital
+</td>
+<td class="r"><span class=chr>-11.52</span></td>
+<td class="r">3.20</td>
+<td class="r">4.33</td>
+<td class="r rm"><span class=chr>-16.19</span></td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Cash from Operating Activities
+</td>
+<td class="r bld"><span class=chr>-5.59</span></td>
+<td class="r bld">9.61</td>
+<td class="r bld">8.27</td>
+<td class="r bld rm"><span class=chr>-14.02</span></td>
+</tr>
+<tr>
+<td class="lft lm">Capital Expenditures
+</td>
+<td class="r"><span class=chr>-1.10</span></td>
+<td class="r"><span class=chr>-0.54</span></td>
+<td class="r"><span class=chr>-1.86</span></td>
+<td class="r rm"><span class=chr>-0.58</span></td>
+</tr>
+<tr>
+<td class="lft lm">Other Investing Cash Flow Items, Total
+</td>
+<td class="r"><span class=chr>-37.57</span></td>
+<td class="r"><span class=chr>-42.53</span></td>
+<td class="r">22.81</td>
+<td class="r rm"><span class=chr>-102.07</span></td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Cash from Investing Activities
+</td>
+<td class="r bld"><span class=chr>-38.67</span></td>
+<td class="r bld"><span class=chr>-43.07</span></td>
+<td class="r bld">20.95</td>
+<td class="r bld rm"><span class=chr>-102.65</span></td>
+</tr>
+<tr>
+<td class="lft lm">Financing Cash Flow Items
+</td>
+<td class="r">83.83</td>
+<td class="r"><span class=chr>-31.76</span></td>
+<td class="r"><span class=chr>-28.42</span></td>
+<td class="r rm">157.45</td>
+</tr>
+<tr>
+<td class="lft lm">Total Cash Dividends Paid
+</td>
+<td class="r">-</td>
+<td class="r">0.00</td>
+<td class="r"><span class=chr>-0.57</span></td>
+<td class="r rm"><span class=chr>-0.54</span></td>
+</tr>
+<tr>
+<td class="lft lm">Issuance (Retirement) of Stock, Net
+</td>
+<td class="r">5.18</td>
+<td class="r">0.30</td>
+<td class="r"><span class=chr>-11.77</span></td>
+<td class="r rm">0.28</td>
+</tr>
+<tr>
+<td class="lft lm">Issuance (Retirement) of Debt, Net
+</td>
+<td class="r"><span class=chr>-45.90</span></td>
+<td class="r">62.40</td>
+<td class="r">3.40</td>
+<td class="r rm"><span class=chr>-29.00</span></td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Cash from Financing Activities
+</td>
+<td class="r bld">43.11</td>
+<td class="r bld">30.94</td>
+<td class="r bld"><span class=chr>-37.36</span></td>
+<td class="r bld rm">128.19</td>
+</tr>
+<tr>
+<td class="lft lm">Foreign Exchange Effects
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr class=hilite>
+<td class="lft lm bld">Net Change in Cash
+</td>
+<td class="r bld"><span class=chr>-1.15</span></td>
+<td class="r bld"><span class=chr>-2.52</span></td>
+<td class="r bld"><span class=chr>-8.14</span></td>
+<td class="r bld rm">11.52</td>
+</tr>
+<tr>
+<td class="lft lm">Cash Interest Paid, Supplemental
+</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r">-</td>
+<td class="r rm">-</td>
+</tr>
+<tr>
+<td class="lft lm">Cash Taxes Paid, Supplemental
+</td>
+<td class="r">3.18</td>
+<td class="r">1.77</td>
+<td class="r">2.36</td>
+<td class="r rm">0.78</td>
+</tr>
+</tbody>

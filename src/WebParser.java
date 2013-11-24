@@ -6,14 +6,19 @@
  */
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
 
 class WebParser {
+	
+	PrintWriter writer;
 	
 	public ArrayList <FinancialClass> companyData = new ArrayList<FinancialClass>();
 
@@ -23,7 +28,13 @@ class WebParser {
 		String name = symbol.substring(0, symbol.indexOf("_"));
 		String exchange = symbol.substring(symbol.indexOf("_")+1,symbol.length());
 		name = name.replace("^", ".");
-		name = name.replace("/", ".");		
+		name = name.replace("/", ".");
+		try {
+			writer= new PrintWriter(name+"_"+exchange + ".txt", "UTF-8");
+		} catch (FileNotFoundException | UnsupportedEncodingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		//Specifying web address to search products
 		String webAddress = "";
 		if (exchange.contains("nyse")){
@@ -60,6 +71,7 @@ class WebParser {
 			}
 			
 			in.close();
+			writer.close();
 
 
 		} catch (MalformedURLException e) {
@@ -73,7 +85,8 @@ class WebParser {
 		try {
 			while (!in.readLine().contains("<thead>"));
 			
-			String getLine = in.readLine();
+			String getLine = in.readLine();writer.println(getLine);
+			
 			String currentCurrency = "";
 			int mainCounter = 0;
 			while (!getLine.contains("<tbody>")){
@@ -118,9 +131,12 @@ class WebParser {
 					companyData.add(fClass);
 
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
+				
 			}
-			getLine = in.readLine();
+			getLine = in.readLine();writer.println(getLine);
+			
+			
 			int secondaryCounter = mainCounter;
 			
 			while (!getLine.contains("</tbody>")){
@@ -146,7 +162,8 @@ class WebParser {
 						secondaryCounter--;
 					}
 				}
-				getLine = in.readLine();
+				
+				getLine = in.readLine();writer.println(getLine);
 			}
 		} catch (IOException e) {
 			System.out.println("All circuits are busy, please try again...");
@@ -160,7 +177,7 @@ class WebParser {
 	private void parseYearlyFinancial(BufferedReader in, String symbol){
 		try {
 			while (!in.readLine().contains("<thead>"));
-			String getLine = in.readLine();
+			String getLine = in.readLine();writer.println(getLine);
 			int mainCounter = 0;
 			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
@@ -197,10 +214,10 @@ class WebParser {
 					mainCounter++;
 					companyData.add(fClass);
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 			
-			getLine = in.readLine();
+			getLine = in.readLine();writer.println(getLine);
 			int secondaryCounter = mainCounter;
 			while (!getLine.contains("</tbody>")){
 				if (getLine.contains("<td class=\"r")){
@@ -224,7 +241,7 @@ class WebParser {
 						secondaryCounter--;
 					}
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 		} catch (IOException e) {
 			System.out.println("All circuits are busy, please try again...");
@@ -234,7 +251,7 @@ class WebParser {
 	private void parseQuarterlyBalanceSheet(BufferedReader in, String symbol){
 		try {
 			while (!in.readLine().contains("<thead>"));
-			String getLine = in.readLine();
+			String getLine = in.readLine();writer.println(getLine);
 			int mainCounter = 0;
 			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
@@ -265,10 +282,10 @@ class WebParser {
 					mainCounter++;
 					companyData.add(fClass);
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 			
-			getLine = in.readLine();
+			getLine = in.readLine();writer.println(getLine);
 			int secondaryCounter = mainCounter;
 			while (!getLine.contains("</tbody>")){
 				if (getLine.contains("<td class=\"r")){
@@ -292,7 +309,7 @@ class WebParser {
 						secondaryCounter--;
 					}
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 		} catch (IOException e) {
 			System.out.println("All circuits are busy, please try again...");
@@ -302,7 +319,7 @@ class WebParser {
 	private void parseYearlyBalanceSheet(BufferedReader in, String symbol){
 		try {
 			while (!in.readLine().contains("<thead>"));
-			String getLine = in.readLine();
+			String getLine = in.readLine();writer.println(getLine);
 			int mainCounter = 0;
 			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
@@ -322,10 +339,10 @@ class WebParser {
 					mainCounter++;
 					companyData.add(fClass);
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 			
-			getLine = in.readLine();
+			getLine = in.readLine();writer.println(getLine);
 			int secondaryCounter = mainCounter;
 			while (!getLine.contains("</tbody>")){
 				if (getLine.contains("<td class=\"r")){
@@ -349,7 +366,7 @@ class WebParser {
 						secondaryCounter--;
 					}
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 		} catch (IOException e) {
 			System.out.println("All circuits are busy, please try again...");
@@ -359,7 +376,7 @@ class WebParser {
 	private void parseQuarterlyCashFlow(BufferedReader in, String symbol){
 		try {
 			while (!in.readLine().contains("<thead>"));
-			String getLine = in.readLine();
+			String getLine = in.readLine();writer.println(getLine);
 			int mainCounter = 0;
 			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
@@ -402,10 +419,10 @@ class WebParser {
 					mainCounter++;
 					companyData.add(fClass);
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 			
-			getLine = in.readLine();
+			getLine = in.readLine();writer.println(getLine);
 			int secondaryCounter = mainCounter;
 			while (!getLine.contains("</tbody>")){
 				if (getLine.contains("<td class=\"r")){
@@ -429,7 +446,7 @@ class WebParser {
 						secondaryCounter--;
 					}
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 		} catch (IOException e) {
 			System.out.println("All circuits are busy, please try again...");
@@ -439,7 +456,7 @@ class WebParser {
 	private void parseYearlyCashFlow(BufferedReader in, String symbol){
 		try {
 			while (!in.readLine().contains("<thead>"));
-			String getLine = in.readLine();
+			String getLine = in.readLine();writer.println(getLine);
 			int mainCounter = 0;
 			String currentCurrency = "";
 			while (!getLine.contains("<tbody>")){
@@ -475,10 +492,10 @@ class WebParser {
 					mainCounter++;
 					companyData.add(fClass);
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 			
-			getLine = in.readLine();
+			getLine = in.readLine();writer.println(getLine);
 			int secondaryCounter = mainCounter;
 			while (!getLine.contains("</tbody>")){
 				if (getLine.contains("<td class=\"r")){
@@ -502,7 +519,7 @@ class WebParser {
 						secondaryCounter--;
 					}
 				}
-				getLine = in.readLine();
+				getLine = in.readLine();writer.println(getLine);
 			}
 		} catch (IOException e) {
 			System.out.println("All circuits are busy, please try again...");
