@@ -21,7 +21,7 @@ class YahooParser {
 		ArrayList<String> array = new ArrayList<String>();
 		//Specifying web address to search products
 		String webAddress =  "http://finance.yahoo.com/d/quotes.csv?s=" + 
-				symbols + "&f=f6spjka2m3m4r6r7s7";
+				symbols + "&f=f6spjka2m3m4r6r7s7j1";
 		//Output the complete address
 		try {
 		

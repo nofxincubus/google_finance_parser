@@ -125,7 +125,7 @@ public class main_test {
 		BufferedWriter w = new BufferedWriter(osw);
 		ArrayList<String> exchangeTwo = new ArrayList<String>();
 		try {
-			w.write("FloatShares,Ticker,Price,52 week high,52 week low,avg Daily Volume,50 day Moving Average,200 day moving average,price/eps estimate this year,price/eps estimate next year,Short Ratio");
+			w.write("FloatShares,Ticker,Price,52 week high,52 week low,avg Daily Volume,50 day Moving Average,200 day moving average,price/eps estimate this year,price/eps estimate next year,Short Ratio,Market Cap");
 			w.newLine();
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
